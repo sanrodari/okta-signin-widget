@@ -1,10 +1,10 @@
 import { RequestLogger, RequestMock } from 'testcafe';
 import TerminalPageObject from '../framework/page-objects/TerminalPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import xhrSafeModeOptionalEnrollment from '../../../playground/mocks/data/idp/idx/safe-mode-optional-enrollment';
-import xhrSafeModeRequiredEnrollment from '../../../playground/mocks/data/idp/idx/safe-mode-required-enrollment';
-import xhrSafeModeCredentialEnrollmentIntent from '../../../playground/mocks/data/idp/idx/safe-mode-credential-enrollment-intent';
-import success from '../../../playground/mocks/data/idp/idx/success';
+import xhrSafeModeOptionalEnrollment from '../../../packages/playground/mocks/data/idp/idx/safe-mode-optional-enrollment';
+import xhrSafeModeRequiredEnrollment from '../../../packages/playground/mocks/data/idp/idx/safe-mode-required-enrollment';
+import xhrSafeModeCredentialEnrollmentIntent from '../../../packages/playground/mocks/data/idp/idx/safe-mode-credential-enrollment-intent';
+import success from '../../../packages/playground/mocks/data/idp/idx/success';
 
 const safeModeOptionalMock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

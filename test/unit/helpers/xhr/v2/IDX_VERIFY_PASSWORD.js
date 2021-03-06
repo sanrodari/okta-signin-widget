@@ -1,4 +1,4 @@
-import xhrIdxVerify from '../../../../../playground/mocks/data/idp/idx/authenticator-verification-password.json';
+import xhrIdxVerify from '../../../../../packages/playground/mocks/data/idp/idx/authenticator-verification-password.json';
 
 module.exports = {
   state: 200,

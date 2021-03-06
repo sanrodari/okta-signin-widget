@@ -1,7 +1,7 @@
 import { RequestMock, RequestLogger } from 'testcafe';
 import IdPAuthenticatorPageObject from '../framework/page-objects/IdPAuthenticatorPageObject';
-import xhrEnrollIdPAuthenticator from '../../../playground/mocks/data/idp/idx/authenticator-enroll-idp.json';
-import xhrVerifyIdPAuthenticator from '../../../playground/mocks/data/idp/idx/authenticator-verification-idp.json';
+import xhrEnrollIdPAuthenticator from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-idp.json';
+import xhrVerifyIdPAuthenticator from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-idp.json';
 
 
 const logger = RequestLogger(/introspect/,

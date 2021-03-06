@@ -2,11 +2,11 @@ import { RequestLogger, RequestMock, ClientFunction, Selector } from 'testcafe';
 import DeviceChallengePollPageObject from '../framework/page-objects/DeviceChallengePollPageObject';
 import SelectAuthenticatorPageObject from '../framework/page-objects/SelectAuthenticatorPageObject';
 import IdentityPageObject from '../framework/page-objects/IdentityPageObject';
-import identify from '../../../playground/mocks/data/idp/idx/identify';
-import identifyWithUserVerificationLoopback from '../../../playground/mocks/data/idp/idx/authenticator-verification-okta-verify-signed-nonce-loopback';
-import identifyWithUserVerificationCustomURI from '../../../playground/mocks/data/idp/idx/authenticator-verification-okta-verify-signed-nonce-custom-uri';
-import identifyWithSSOExtensionFallback from '../../../playground/mocks/data/idp/idx/identify-with-apple-sso-extension-fallback';
-import identifyWithUserVerificationLaunchUniversalLink from '../../../playground/mocks/data/idp/idx/authenticator-verification-okta-verify-signed-nonce-universal-link';
+import identify from '../../../packages/playground/mocks/data/idp/idx/identify';
+import identifyWithUserVerificationLoopback from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-okta-verify-signed-nonce-loopback';
+import identifyWithUserVerificationCustomURI from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-okta-verify-signed-nonce-custom-uri';
+import identifyWithSSOExtensionFallback from '../../../packages/playground/mocks/data/idp/idx/identify-with-apple-sso-extension-fallback';
+import identifyWithUserVerificationLaunchUniversalLink from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-okta-verify-signed-nonce-universal-link';
 
 const BEACON_CLASS = 'mfa-okta-verify';
 

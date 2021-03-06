@@ -1,8 +1,8 @@
 import { RequestMock } from 'testcafe';
-import terminalReturnEmail from '../../../playground/mocks/data/idp/idx/terminal-return-email';
-import terminalTransferEmail from '../../../playground/mocks/data/idp/idx/terminal-transfered-email';
-import terminalReturnExpiredEmail from '../../../playground/mocks/data/idp/idx/terminal-return-expired-email';
-import terminalRegistrationEmail from '../../../playground/mocks/data/idp/idx/terminal-registration';
+import terminalReturnEmail from '../../../packages/playground/mocks/data/idp/idx/terminal-return-email';
+import terminalTransferEmail from '../../../packages/playground/mocks/data/idp/idx/terminal-transfered-email';
+import terminalReturnExpiredEmail from '../../../packages/playground/mocks/data/idp/idx/terminal-return-expired-email';
+import terminalRegistrationEmail from '../../../packages/playground/mocks/data/idp/idx/terminal-registration';
 import TerminalPageObject from '../framework/page-objects/TerminalPageObject';
 
 

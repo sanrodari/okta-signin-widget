@@ -1,7 +1,7 @@
 import { RequestMock } from 'testcafe';
-import xhrAuthenticatorVerifyCustomOTP from '../../../playground/mocks/data/idp/idx/authenticator-verification-custom-otp';
-import xhrInvalidOTP from '../../../playground/mocks/data/idp/idx/error-authenticator-verification-custom-otp';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrAuthenticatorVerifyCustomOTP from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-custom-otp';
+import xhrInvalidOTP from '../../../packages/playground/mocks/data/idp/idx/error-authenticator-verification-custom-otp';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 import ChallengeCustomOTPPageObject from '../framework/page-objects/ChallengeCustomOTPPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import { checkConsoleMessages } from '../framework/shared';

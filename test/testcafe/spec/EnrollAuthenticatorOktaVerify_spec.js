@@ -5,12 +5,12 @@ import EnrollOVViaEmailPageObject from '../framework/page-objects/EnrollOVViaEma
 import EnrollOVViaSMSPageObject from '../framework/page-objects/EnrollOVViaSMSPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import xhrAuthenticatorEnrollOktaVerifyQr from '../../../playground/mocks/data/idp/idx/authenticator-enroll-ov-qr';
-import xhrAuthenticatorEnrollOktaVerifyViaEmail from '../../../playground/mocks/data/idp/idx/authenticator-enroll-ov-via-email';
-import xhrAuthenticatorEnrollOktaVerifyEmail from '../../../playground/mocks/data/idp/idx/authenticator-enroll-ov-email';
-import xhrAuthenticatorEnrollOktaVerifyViaSMS from '../../../playground/mocks/data/idp/idx/authenticator-enroll-ov-via-sms';
-import xhrAuthenticatorEnrollOktaVerifySMS from '../../../playground/mocks/data/idp/idx/authenticator-enroll-ov-sms';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrAuthenticatorEnrollOktaVerifyQr from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-ov-qr';
+import xhrAuthenticatorEnrollOktaVerifyViaEmail from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-ov-via-email';
+import xhrAuthenticatorEnrollOktaVerifyEmail from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-ov-email';
+import xhrAuthenticatorEnrollOktaVerifyViaSMS from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-ov-via-sms';
+import xhrAuthenticatorEnrollOktaVerifySMS from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-ov-sms';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 
 const logger = RequestLogger(/introspect|poll|send|enroll/, {
   logRequestBody: true,

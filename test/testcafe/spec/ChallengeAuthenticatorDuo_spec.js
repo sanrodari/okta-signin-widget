@@ -2,8 +2,8 @@ import { RequestMock, RequestLogger } from 'testcafe';
 
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import DuoPageObject from '../framework/page-objects/DuoPageObject';
-import xhrAuthenticatorVerifyDuo from '../../../playground/mocks/data/idp/idx/authenticator-verification-duo';
-import success from '../../../playground/mocks/data/idp/idx/success';
+import xhrAuthenticatorVerifyDuo from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-duo';
+import success from '../../../packages/playground/mocks/data/idp/idx/success';
 
 const mock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

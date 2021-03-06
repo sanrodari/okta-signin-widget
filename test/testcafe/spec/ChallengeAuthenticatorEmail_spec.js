@@ -4,15 +4,15 @@ import ChallengeEmailPageObject from '../framework/page-objects/ChallengeEmailPa
 import TerminalPageObject from '../framework/page-objects/TerminalPageObject';
 import { checkConsoleMessages } from '../framework/shared';
 
-import emailVerification from '../../../playground/mocks/data/idp/idx/authenticator-verification-email';
-import emailVerificationPolling from '../../../playground/mocks/data/idp/idx/authenticator-verification-email-polling';
-import emailVerificationNoProfile from '../../../playground/mocks/data/idp/idx/authenticator-verification-email-no-profile';
-import success from '../../../playground/mocks/data/idp/idx/success';
-import invalidOTP from '../../../playground/mocks/data/idp/idx/error-email-verify';
-import magicLinkReturnTab from '../../../playground/mocks/data/idp/idx/terminal-return-email';
-import magicLinkExpired from '../../../playground/mocks/data/idp/idx/terminal-return-expired-email';
-import terminalTransferedEmail from '../../../playground/mocks/data/idp/idx/terminal-transfered-email';
-import sessionExpired from '../../../playground/mocks/data/idp/idx/error-session-expired';
+import emailVerification from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-email';
+import emailVerificationPolling from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-email-polling';
+import emailVerificationNoProfile from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-email-no-profile';
+import success from '../../../packages/playground/mocks/data/idp/idx/success';
+import invalidOTP from '../../../packages/playground/mocks/data/idp/idx/error-email-verify';
+import magicLinkReturnTab from '../../../packages/playground/mocks/data/idp/idx/terminal-return-email';
+import magicLinkExpired from '../../../packages/playground/mocks/data/idp/idx/terminal-return-expired-email';
+import terminalTransferedEmail from '../../../packages/playground/mocks/data/idp/idx/terminal-transfered-email';
+import sessionExpired from '../../../packages/playground/mocks/data/idp/idx/error-session-expired';
 
 const emailVerificationEmptyProfile = JSON.parse(JSON.stringify(emailVerificationNoProfile));
 // add empty profile to test

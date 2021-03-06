@@ -2,9 +2,9 @@ import { RequestMock, RequestLogger } from 'testcafe';
 import ChallengeOktaVerifyPushPageObject from '../framework/page-objects/ChallengeOktaVerifyPushPageObject';
 import { checkConsoleMessages } from '../framework/shared';
 
-import numberChallenge from '../../../playground/mocks/data/idp/idx/authenticator-verification-number-challenge';
-import success from '../../../playground/mocks/data/idp/idx/success';
-import serverError from '../../../playground/mocks/data/idp/idx/error-internal-server-error.json';
+import numberChallenge from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-number-challenge';
+import success from '../../../packages/playground/mocks/data/idp/idx/success';
+import serverError from '../../../packages/playground/mocks/data/idp/idx/error-internal-server-error.json';
 
 const logger = RequestLogger(/challenge|challenge\/poll/,
   {

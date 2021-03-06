@@ -2,17 +2,17 @@ import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import ChallengePhonePageObject from '../framework/page-objects/ChallengePhonePageObject';
 import { checkConsoleMessages } from '../framework/shared';
 import { RequestMock, RequestLogger } from 'testcafe';
-import phoneVerificationSMSThenVoice from '../../../playground/mocks/data/idp/idx/authenticator-verification-data-phone-sms-then-voice';
-import phoneVerificationVoiceThenSMS from '../../../playground/mocks/data/idp/idx/authenticator-verification-data-phone-voice-then-sms';
-import phoneVerificationVoiceOnly from '../../../playground/mocks/data/idp/idx/authenticator-verification-data-phone-voice-only';
-import smsVerification from '../../../playground/mocks/data/idp/idx/authenticator-verification-phone-sms';
-import voiceVerification from '../../../playground/mocks/data/idp/idx/authenticator-verification-phone-voice';
-import phoneVerificationSMSThenVoiceNoProfile from '../../../playground/mocks/data/idp/idx/authenticator-verification-data-phone-sms-then-voice-no-profile';
-import phoneVerificationVoiceThenSMSNoProfile from '../../../playground/mocks/data/idp/idx/authenticator-verification-data-phone-voice-then-sms-no-profile';
-import smsVerificationNoProfile from '../../../playground/mocks/data/idp/idx/authenticator-verification-phone-sms-no-profile';
-import voiceVerificationNoProfile from '../../../playground/mocks/data/idp/idx/authenticator-verification-phone-voice-no-profile';
-import success from '../../../playground/mocks/data/idp/idx/success';
-import invalidCode from '../../../playground/mocks/data/idp/idx/error-email-verify';
+import phoneVerificationSMSThenVoice from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-data-phone-sms-then-voice';
+import phoneVerificationVoiceThenSMS from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-data-phone-voice-then-sms';
+import phoneVerificationVoiceOnly from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-data-phone-voice-only';
+import smsVerification from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-phone-sms';
+import voiceVerification from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-phone-voice';
+import phoneVerificationSMSThenVoiceNoProfile from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-data-phone-sms-then-voice-no-profile';
+import phoneVerificationVoiceThenSMSNoProfile from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-data-phone-voice-then-sms-no-profile';
+import smsVerificationNoProfile from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-phone-sms-no-profile';
+import voiceVerificationNoProfile from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-phone-voice-no-profile';
+import success from '../../../packages/playground/mocks/data/idp/idx/success';
+import invalidCode from '../../../packages/playground/mocks/data/idp/idx/error-email-verify';
 
 const phoneVerificationSMSThenVoiceEmptyProfile = JSON.parse(JSON.stringify(phoneVerificationSMSThenVoiceNoProfile));
 // add empty profile to test

@@ -1,8 +1,8 @@
 import { RequestMock, RequestLogger } from 'testcafe';
 import SelectAuthenticatorPageObject from '../framework/page-objects/SelectAuthenticatorPageObject';
 
-import xhrSelectMethodOktaVerify from '../../../playground/mocks/data/idp/idx/authenticator-verification-okta-verify-select-method';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrSelectMethodOktaVerify from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-okta-verify-select-method';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 
 const requestLogger = RequestLogger(/challenge/,

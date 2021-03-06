@@ -1,10 +1,10 @@
 import { RequestMock, RequestLogger, Selector, ClientFunction } from 'testcafe';
 import IdentityPageObject from '../framework/page-objects/IdentityPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import identifyWithIdpsIdentify from '../../../playground/mocks/data/idp/idx/identify-with-third-party-idps';
-import identifyWithIdpsNoIdentify from '../../../playground/mocks/data/idp/idx/identify-with-only-third-party-idps';
-import identifyOnlyOneIdp from '../../../playground/mocks/data/idp/idx/identify-with-only-one-third-party-idp';
-import identifyOnlyOneIdpAppUser from '../../../playground/mocks/data/idp/idx/identify-with-only-one-third-party-idp-app-user';
+import identifyWithIdpsIdentify from '../../../packages/playground/mocks/data/idp/idx/identify-with-third-party-idps';
+import identifyWithIdpsNoIdentify from '../../../packages/playground/mocks/data/idp/idx/identify-with-only-third-party-idps';
+import identifyOnlyOneIdp from '../../../packages/playground/mocks/data/idp/idx/identify-with-only-one-third-party-idp';
+import identifyOnlyOneIdpAppUser from '../../../packages/playground/mocks/data/idp/idx/identify-with-only-one-third-party-idp-app-user';
 
 const logger = RequestLogger(/introspect/,
   {

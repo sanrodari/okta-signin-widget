@@ -1,7 +1,7 @@
 import { RequestLogger, RequestMock } from 'testcafe';
 import DeviceChallengePollPageObject from '../framework/page-objects/DeviceChallengePollPageObject';
-import identifyWithDeviceProbingLoopback from '../../../playground/mocks/data/idp/idx/identify-with-device-probing-loopback';
-import error from '../../../playground/mocks/data/idp/idx/error-email-verify';
+import identifyWithDeviceProbingLoopback from '../../../packages/playground/mocks/data/idp/idx/identify-with-device-probing-loopback';
+import error from '../../../packages/playground/mocks/data/idp/idx/error-email-verify';
 
 const logger = RequestLogger(/introspect|probe|challenge/, { logRequestBody: true, stringifyRequestBody: true });
 

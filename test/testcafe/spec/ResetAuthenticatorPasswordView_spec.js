@@ -2,8 +2,8 @@ import { RequestMock, RequestLogger } from 'testcafe';
 import FactorEnrollPasswordPageObject from '../framework/page-objects/FactorEnrollPasswordPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import xhrAuthenticatorResetPassword from '../../../playground/mocks/data/idp/idx/authenticator-reset-password';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrAuthenticatorResetPassword from '../../../packages/playground/mocks/data/idp/idx/authenticator-reset-password';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 
 const logger = RequestLogger(/challenge\/answer/,
   {

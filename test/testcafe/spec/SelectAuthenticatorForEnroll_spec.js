@@ -4,14 +4,14 @@ import SelectFactorPageObject from '../framework/page-objects/SelectAuthenticato
 import FactorEnrollPasswordPageObject from '../framework/page-objects/FactorEnrollPasswordPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 
-import xhrSelectAuthenticators from '../../../playground/mocks/data/idp/idx/authenticator-enroll-select-authenticator';
-import xhrAuthenticatorEnrollPassword from '../../../playground/mocks/data/idp/idx/authenticator-enroll-password';
+import xhrSelectAuthenticators from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-select-authenticator';
+import xhrAuthenticatorEnrollPassword from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-password';
 
-import xhrSelectAuthenticatorsWithSkip from '../../../playground/mocks/data/idp/idx/authenticator-enroll-select-authenticator-with-skip';
-import success from '../../../playground/mocks/data/idp/idx/success';
+import xhrSelectAuthenticatorsWithSkip from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-select-authenticator-with-skip';
+import success from '../../../packages/playground/mocks/data/idp/idx/success';
 
-import xhrSelectAuthenticatorEnroll from '../../../playground/mocks/data/idp/idx/authenticator-enroll-select-authenticator';
-import xhrAuthenticatorEnrollCustomOTP from '../../../playground/mocks/data/idp/idx/error-authenticator-enroll-custom-otp';
+import xhrSelectAuthenticatorEnroll from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-select-authenticator';
+import xhrAuthenticatorEnrollCustomOTP from '../../../packages/playground/mocks/data/idp/idx/error-authenticator-enroll-custom-otp';
 
 const mockEnrollAuthenticatorPassword = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

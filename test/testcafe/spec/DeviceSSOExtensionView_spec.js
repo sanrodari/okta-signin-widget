@@ -1,12 +1,12 @@
 import { RequestLogger, RequestMock, ClientFunction, Selector } from 'testcafe';
 import BasePageObject from '../framework/page-objects/BasePageObject';
 import IdentityPageObject from '../framework/page-objects/IdentityPageObject';
-import identifyWithAppleRedirectSSOExtension from '../../../playground/mocks/data/idp/idx/identify-with-apple-redirect-sso-extension';
-import identifyWithAppleCredentialSSOExtension from '../../../playground/mocks/data/idp/idx/identify-with-apple-credential-sso-extension';
-import identifyWithNoAppleCredentialSSOExtension from '../../../playground/mocks/data/idp/idx/identify-with-no-sso-extension';
-import identifyUserVerificationWithCredentialSSOExtension from '../../../playground/mocks/data/idp/idx/authenticator-verification-okta-verify-signed-nonce-credential-sso-extension';
-import identify from '../../../playground/mocks/data/idp/idx/identify';
-import error from '../../../playground/mocks/data/idp/idx/error-email-verify';
+import identifyWithAppleRedirectSSOExtension from '../../../packages/playground/mocks/data/idp/idx/identify-with-apple-redirect-sso-extension';
+import identifyWithAppleCredentialSSOExtension from '../../../packages/playground/mocks/data/idp/idx/identify-with-apple-credential-sso-extension';
+import identifyWithNoAppleCredentialSSOExtension from '../../../packages/playground/mocks/data/idp/idx/identify-with-no-sso-extension';
+import identifyUserVerificationWithCredentialSSOExtension from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-okta-verify-signed-nonce-credential-sso-extension';
+import identify from '../../../packages/playground/mocks/data/idp/idx/identify';
+import error from '../../../packages/playground/mocks/data/idp/idx/error-email-verify';
 
 const logger = RequestLogger(/introspect/);
 const verifyUrl = 'http://localhost:3000/idp/idx/authenticators/sso_extension/transactions/123/verify?\

@@ -1,12 +1,12 @@
 import { RequestLogger, RequestMock } from 'testcafe';
-import xhrAuthenticatorRequiredPassword from '../../../playground/mocks/data/idp/idx/authenticator-verification-password';
-import xhrInvalidPassword from '../../../playground/mocks/data/idp/idx/error-authenticator-verify-password';
-import xhrForgotPasswordError from '../../../playground/mocks/data/idp/idx/error-forgot-password';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrAuthenticatorRequiredPassword from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-password';
+import xhrInvalidPassword from '../../../packages/playground/mocks/data/idp/idx/error-authenticator-verify-password';
+import xhrForgotPasswordError from '../../../packages/playground/mocks/data/idp/idx/error-forgot-password';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 import ChallengePasswordPageObject from '../framework/page-objects/ChallengePasswordPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import sessionExpired from '../../../playground/mocks/data/idp/idx/error-pre-versioning-ff-session-expired';
+import sessionExpired from '../../../packages/playground/mocks/data/idp/idx/error-pre-versioning-ff-session-expired';
 
 const mockChallengeAuthenticatorPassword = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

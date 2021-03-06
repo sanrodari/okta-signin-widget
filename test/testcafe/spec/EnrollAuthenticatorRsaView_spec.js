@@ -1,9 +1,9 @@
 import { RequestMock } from 'testcafe';
 import EnrollRsaPageObject from '../framework/page-objects/EnrollOnPremPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
-import xhrAuthenticatorEnrollRsa from '../../../playground/mocks/data/idp/idx/authenticator-enroll-rsa';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
-import xhrPasscodeChange from '../../../playground/mocks/data/idp/idx/error-authenticator-enroll-passcode-change-rsa';
+import xhrAuthenticatorEnrollRsa from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-rsa';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
+import xhrPasscodeChange from '../../../packages/playground/mocks/data/idp/idx/error-authenticator-enroll-passcode-change-rsa';
 
 const successMock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

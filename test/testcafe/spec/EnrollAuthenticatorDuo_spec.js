@@ -1,8 +1,8 @@
 import { RequestMock } from 'testcafe';
 import DuoPageObject from '../framework/page-objects/DuoPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
-import xhrAuthenticatorEnrollDuo from '../../../playground/mocks/data/idp/idx/authenticator-enroll-duo';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrAuthenticatorEnrollDuo from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-duo';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 
 const mock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

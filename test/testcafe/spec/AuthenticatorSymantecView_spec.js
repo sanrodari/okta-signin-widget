@@ -1,9 +1,9 @@
 import { RequestMock, RequestLogger } from 'testcafe';
 import SymantecAuthenticatorPageObject from '../framework/page-objects/SymantecAuthenticatorPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import xhrEnrollSymantecAuthenticator from '../../../playground/mocks/data/idp/idx/authenticator-enroll-symantec-vip';
-import xhrVerifySymantecAuthenticator from '../../../playground/mocks/data/idp/idx/authenticator-verification-symantec-vip';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrEnrollSymantecAuthenticator from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-symantec-vip';
+import xhrVerifySymantecAuthenticator from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-symantec-vip';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 
 const logger = RequestLogger(/introspect/,
   {

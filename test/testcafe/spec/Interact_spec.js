@@ -2,10 +2,10 @@ import { ClientFunction, RequestMock, RequestLogger } from 'testcafe';
 import BasePageObject from '../framework/page-objects/BasePageObject';
 import TerminalPageObject from '../framework/page-objects/TerminalPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import xhrServerError from '../../../playground/mocks/data/oauth2/error-feature-not-enabled';
-import xhrWellKnownResponse from '../../../playground/mocks/data/oauth2/well-known-openid-configuration.json';
-import xhrInteractResponse from '../../../playground/mocks/data/oauth2/interact.json';
-import xhrIdentify from '../../../playground/mocks/data/idp/idx/identify';
+import xhrServerError from '../../../packages/playground/mocks/data/oauth2/error-feature-not-enabled';
+import xhrWellKnownResponse from '../../../packages/playground/mocks/data/oauth2/well-known-openid-configuration.json';
+import xhrInteractResponse from '../../../packages/playground/mocks/data/oauth2/interact.json';
+import xhrIdentify from '../../../packages/playground/mocks/data/idp/idx/identify';
 
 const expectIdentifyView =  {
   controller: 'primary-auth',

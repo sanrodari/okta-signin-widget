@@ -3,10 +3,10 @@ import IdentityPageObject from '../framework/page-objects/IdentityPageObject';
 import SelectFactorPageObject from '../framework/page-objects/SelectAuthenticatorPageObject';
 import EnrollOVViaSMSPageObject from '../framework/page-objects/EnrollOVViaSMSPageObject';
 
-import xhrIdentifyWithPassword from '../../../playground/mocks/data/idp/idx/identify-with-password';
-import xhrSelectAuthenticatorEnroll from '../../../playground/mocks/data/idp/idx/authenticator-enroll-select-authenticator';
-import xhrSafeModepolling from '../../../playground/mocks/data/idp/idx/safe-mode-polling';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/authenticator-enroll-ov-via-sms';
+import xhrIdentifyWithPassword from '../../../packages/playground/mocks/data/idp/idx/identify-with-password';
+import xhrSelectAuthenticatorEnroll from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-select-authenticator';
+import xhrSafeModepolling from '../../../packages/playground/mocks/data/idp/idx/safe-mode-polling';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-ov-via-sms';
 
 const identifyMock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

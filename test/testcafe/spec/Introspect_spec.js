@@ -1,7 +1,7 @@
 import { RequestMock, RequestLogger } from 'testcafe';
 import TerminalPageObject from '../framework/page-objects/TerminalPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import xhrInternalServerError from '../../../playground/mocks/data/idp/idx/error-internal-server-error';
+import xhrInternalServerError from '../../../packages/playground/mocks/data/idp/idx/error-internal-server-error';
 
 const introspectMock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

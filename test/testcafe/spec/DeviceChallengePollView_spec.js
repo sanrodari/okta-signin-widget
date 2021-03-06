@@ -1,12 +1,12 @@
 import { RequestLogger, RequestMock, ClientFunction, Selector } from 'testcafe';
 import DeviceChallengePollPageObject from '../framework/page-objects/DeviceChallengePollPageObject';
 import IdentityPageObject from '../framework/page-objects/IdentityPageObject';
-import identify from '../../../playground/mocks/data/idp/idx/identify';
-import identifyWithDeviceProbingLoopback from '../../../playground/mocks/data/idp/idx/identify-with-device-probing-loopback';
-import loopbackChallengeNotReceived from '../../../playground/mocks/data/idp/idx/identify-with-device-probing-loopback-challenge-not-received';
-import identifyWithLaunchAuthenticator from '../../../playground/mocks/data/idp/idx/identify-with-device-launch-authenticator';
-import identifyWithSSOExtensionFallback from '../../../playground/mocks/data/idp/idx/identify-with-apple-sso-extension-fallback';
-import identifyWithLaunchUniversalLink from '../../../playground/mocks/data/idp/idx/identify-with-universal-link';
+import identify from '../../../packages/playground/mocks/data/idp/idx/identify';
+import identifyWithDeviceProbingLoopback from '../../../packages/playground/mocks/data/idp/idx/identify-with-device-probing-loopback';
+import loopbackChallengeNotReceived from '../../../packages/playground/mocks/data/idp/idx/identify-with-device-probing-loopback-challenge-not-received';
+import identifyWithLaunchAuthenticator from '../../../packages/playground/mocks/data/idp/idx/identify-with-device-launch-authenticator';
+import identifyWithSSOExtensionFallback from '../../../packages/playground/mocks/data/idp/idx/identify-with-apple-sso-extension-fallback';
+import identifyWithLaunchUniversalLink from '../../../packages/playground/mocks/data/idp/idx/identify-with-universal-link';
 
 const BEACON_CLASS = 'mfa-okta-verify';
 

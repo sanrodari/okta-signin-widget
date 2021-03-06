@@ -7,7 +7,7 @@ import webauthn from 'util/webauthn';
 import $sandbox from 'sandbox';
 import BrowserFeatures from 'util/BrowserFeatures';
 import Expect from 'helpers/util/Expect';
-import EnrollWebauthnResponse from '../../../../../../playground/mocks/data/idp/idx/authenticator-enroll-webauthn.json';
+import EnrollWebauthnResponse from '../../../../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-webauthn.json';
 
 describe('v2/view-builder/views/webauthn/EnrollWebauthnView', function () {
   let testContext;

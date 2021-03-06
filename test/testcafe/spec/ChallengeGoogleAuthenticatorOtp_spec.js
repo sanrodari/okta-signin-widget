@@ -3,9 +3,9 @@ import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import ChallengeGoogleAuthenticatorPageObject from '../framework/page-objects/ChallengeGoogleAuthenticatorPageObject';
 import { checkConsoleMessages } from '../framework/shared';
 
-import otpChallenge from '../../../playground/mocks/data/idp/idx/authenticator-verification-google-authenticator';
-import success from '../../../playground/mocks/data/idp/idx/success';
-import invalidTOTP from '../../../playground/mocks/data/idp/idx/error-google-authenticator-otp';
+import otpChallenge from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-google-authenticator';
+import success from '../../../packages/playground/mocks/data/idp/idx/success';
+import invalidTOTP from '../../../packages/playground/mocks/data/idp/idx/error-google-authenticator-otp';
 
 const logger = RequestLogger(/challenge|challenge\/answer/,
   {

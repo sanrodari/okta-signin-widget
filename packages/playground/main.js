@@ -1,7 +1,7 @@
 /* global OktaSignIn */
 /* eslint no-console: 0 */
 
-import signinWidgetOptions from '../.widgetrc.js';
+import signinWidgetOptions from '../../.widgetrc.js';
 
 if (typeof OktaSignIn === 'undefined') {
   // Make sure OktaSignIn is available

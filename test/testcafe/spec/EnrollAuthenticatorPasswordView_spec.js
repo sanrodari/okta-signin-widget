@@ -2,8 +2,8 @@ import { RequestMock } from 'testcafe';
 import FactorEnrollPasswordPageObject from '../framework/page-objects/FactorEnrollPasswordPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import xhrAuthenticatorEnrollPassword from '../../../playground/mocks/data/idp/idx/authenticator-enroll-password';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrAuthenticatorEnrollPassword from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-password';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 
 const mock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

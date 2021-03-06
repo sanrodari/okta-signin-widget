@@ -1,8 +1,8 @@
 import { RequestMock } from 'testcafe';
-import xhrAuthenticatorRequiredRsa from '../../../playground/mocks/data/idp/idx/authenticator-verification-rsa';
-import xhrInvalidPasscode from '../../../playground/mocks/data/idp/idx/error-authenticator-verification-rsa';
-import xhrPasscodeChange from '../../../playground/mocks/data/idp/idx/error-authenticator-verification-passcode-change-rsa';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrAuthenticatorRequiredRsa from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-rsa';
+import xhrInvalidPasscode from '../../../packages/playground/mocks/data/idp/idx/error-authenticator-verification-rsa';
+import xhrPasscodeChange from '../../../packages/playground/mocks/data/idp/idx/error-authenticator-verification-passcode-change-rsa';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 import ChallengeRsaPageObject from '../framework/page-objects/ChallengeOnPremPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 

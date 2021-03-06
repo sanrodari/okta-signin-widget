@@ -3,7 +3,7 @@ import AppState from 'v2/models/AppState';
 import Settings from 'models/Settings';
 import $sandbox from 'sandbox';
 import BrowserFeatures from 'util/BrowserFeatures';
-import xhrAuthenticatorEnrollOktaVerifyQr from '../../../../../../playground/mocks/data/idp/idx/authenticator-enroll-ov-qr';
+import xhrAuthenticatorEnrollOktaVerifyQr from '../../../../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-ov-qr';
 
 describe('v2/view-builder/views/ov/EnrollPollOktaVerifyView', function () {
   let testContext;

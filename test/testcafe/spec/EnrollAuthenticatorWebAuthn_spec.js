@@ -1,8 +1,8 @@
 import { RequestMock } from 'testcafe';
 import EnrollWebauthnPageObject from '../framework/page-objects/EnrollWebauthnPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import xhrAuthenticatorEnrollWebauthn from '../../../playground/mocks/data/idp/idx/authenticator-enroll-webauthn';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrAuthenticatorEnrollWebauthn from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-webauthn';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 
 const mock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

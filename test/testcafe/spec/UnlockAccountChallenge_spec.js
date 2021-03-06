@@ -2,11 +2,11 @@ import { RequestMock } from 'testcafe';
 import SelectFactorPageObject from '../framework/page-objects/SelectAuthenticatorPageObject';
 import ChallengeEmailPageObject from '../framework/page-objects/ChallengeEmailPageObject';
 import IdentityPageObject from '../framework/page-objects/IdentityPageObject';
-import xhrIdentifyWithUnlock from '../../../playground/mocks/data/idp/idx/identify-with-unlock-account-link';
-import xhrUserUnlockAuthSelector from '../../../playground/mocks/data/idp/idx/user-unlock-account';
-import xhrUserUnlockSuccess from '../../../playground/mocks/data/idp/idx/user-account-unlock-success';
-import xhrUserUnlockEmailChallenge from '../../../playground/mocks/data/idp/idx/authenticator-verification-email';
-import xhrErrorUnlockAccount from '../../../playground/mocks/data/idp/idx/error-unlock-account';
+import xhrIdentifyWithUnlock from '../../../packages/playground/mocks/data/idp/idx/identify-with-unlock-account-link';
+import xhrUserUnlockAuthSelector from '../../../packages/playground/mocks/data/idp/idx/user-unlock-account';
+import xhrUserUnlockSuccess from '../../../packages/playground/mocks/data/idp/idx/user-account-unlock-success';
+import xhrUserUnlockEmailChallenge from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-email';
+import xhrErrorUnlockAccount from '../../../packages/playground/mocks/data/idp/idx/error-unlock-account';
 import TerminalPageObject from '../framework/page-objects/TerminalPageObject';
 
 

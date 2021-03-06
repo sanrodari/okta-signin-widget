@@ -2,9 +2,9 @@ import { RequestMock } from 'testcafe';
 import EnrollPhonePageObject from '../framework/page-objects/EnrollPhonePageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import xhrAuthenticatorEnrollDataPhone from '../../../playground/mocks/data/idp/idx/authenticator-enroll-data-phone';
-import xhrAuthenticatorEnrollDataPhoneVoice from '../../../playground/mocks/data/idp/idx/authenticator-enroll-data-phone-voice';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrAuthenticatorEnrollDataPhone from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-data-phone';
+import xhrAuthenticatorEnrollDataPhoneVoice from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-data-phone-voice';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 
 const mock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

@@ -1,7 +1,7 @@
 import { RequestMock } from 'testcafe';
 import TerminalPageObject from '../framework/page-objects/TerminalPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import xhr403SecurityAccessDenied from '../../../playground/mocks/data/idp/idx/error-403-security-access-denied';
+import xhr403SecurityAccessDenied from '../../../packages/playground/mocks/data/idp/idx/error-403-security-access-denied';
 
 const securityAccessDeniedMock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

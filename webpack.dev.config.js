@@ -4,7 +4,7 @@ var common    = require('./webpack.common.config');
 var plugins   = require('./buildtools/webpack/plugins');
 var usePolyfill = require('./buildtools/webpack/polyfill');
 var path       = require('path');
-var PLAYGROUND = path.resolve(__dirname, 'playground');
+var PLAYGROUND = path.resolve(__dirname, 'packages', 'playground');
 
 module.exports = (env = {}) => {
   const { isProduction, skipAnalyzer } = env;

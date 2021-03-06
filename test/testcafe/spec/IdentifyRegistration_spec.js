@@ -1,11 +1,11 @@
 import { RequestMock } from 'testcafe';
 import IdentityPageObject from '../framework/page-objects/IdentityPageObject';
 import RegistrationPageObject from '../framework/page-objects/RegistrationPageObject';
-import identify from '../../../playground/mocks/data/idp/idx/identify';
-import enrollProfile from '../../../playground/mocks/data/idp/idx/enroll-profile';
-import enrollProfileNew from '../../../playground/mocks/data/idp/idx/enroll-profile-new';
-import enrollProfileError from '../../../playground/mocks/data/idp/idx/error-new-signup-email';
-import enrollProfileFinish from '../../../playground/mocks/data/idp/idx/terminal-registration.json';
+import identify from '../../../packages/playground/mocks/data/idp/idx/identify';
+import enrollProfile from '../../../packages/playground/mocks/data/idp/idx/enroll-profile';
+import enrollProfileNew from '../../../packages/playground/mocks/data/idp/idx/enroll-profile-new';
+import enrollProfileError from '../../../packages/playground/mocks/data/idp/idx/error-new-signup-email';
+import enrollProfileFinish from '../../../packages/playground/mocks/data/idp/idx/terminal-registration.json';
 
 const mock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

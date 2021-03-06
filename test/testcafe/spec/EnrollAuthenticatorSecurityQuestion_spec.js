@@ -4,10 +4,10 @@ import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import EnrollSecurityQuestionPageObject from '../framework/page-objects/EnrollSecurityQuestionPageObject';
 import { checkConsoleMessages } from '../framework/shared';
 
-import xhrAuthenticatorEnrollSecurityQuestion from '../../../playground/mocks/data/idp/idx/authenticator-enroll-security-question';
-import xhrErrorAuthenticatorEnrollSecurityQuestion from '../../../playground/mocks/data/idp/idx/error-authenticator-enroll-security-question.json';
-import xhrErrorAuthenticatorEnrollSecurityQuestionCreateQuestion from '../../../playground/mocks/data/idp/idx/error-authenticator-enroll-security-question-create-question.json';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrAuthenticatorEnrollSecurityQuestion from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-security-question';
+import xhrErrorAuthenticatorEnrollSecurityQuestion from '../../../packages/playground/mocks/data/idp/idx/error-authenticator-enroll-security-question.json';
+import xhrErrorAuthenticatorEnrollSecurityQuestionCreateQuestion from '../../../packages/playground/mocks/data/idp/idx/error-authenticator-enroll-security-question-create-question.json';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 
 const authenticatorEnrollSecurityQuestionMock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

@@ -3,9 +3,9 @@ import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import ChallengeOktaVerifyTotpPageObject from '../framework/page-objects/ChallengeOktaVerifyTotpPageObject';
 import { checkConsoleMessages } from '../framework/shared';
 
-import totpChallenge from '../../../playground/mocks/data/idp/idx/authenticator-verification-okta-verify-totp';
-import success from '../../../playground/mocks/data/idp/idx/success';
-import invalidTOTP from '../../../playground/mocks/data/idp/idx/error-okta-verify-totp';
+import totpChallenge from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-okta-verify-totp';
+import success from '../../../packages/playground/mocks/data/idp/idx/success';
+import invalidTOTP from '../../../packages/playground/mocks/data/idp/idx/error-okta-verify-totp';
 
 const logger = RequestLogger(/challenge|challenge\/answer/,
   {

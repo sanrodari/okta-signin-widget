@@ -3,8 +3,8 @@ import { RequestMock, RequestLogger } from 'testcafe';
 import ConsentPageObject from '../framework/page-objects/ConsentPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 
-import xhrConsentAdmin from '../../../playground/mocks/data/idp/idx/consent-admin';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrConsentAdmin from '../../../packages/playground/mocks/data/idp/idx/consent-admin';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 
 
 const consentAdminMock = RequestMock()

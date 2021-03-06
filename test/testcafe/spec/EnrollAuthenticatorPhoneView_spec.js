@@ -2,10 +2,10 @@ import { RequestMock, RequestLogger } from 'testcafe';
 import EnrollPhonePageObject from '../framework/page-objects/EnrollPhonePageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import xhrAuthenticatorEnrollPhone from '../../../playground/mocks/data/idp/idx/authenticator-enroll-phone';
-import xhrAuthenticatorEnrollPhoneVoice from '../../../playground/mocks/data/idp/idx/authenticator-enroll-phone-voice';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
-import invalidCode from '../../../playground/mocks/data/idp/idx/error-email-verify';
+import xhrAuthenticatorEnrollPhone from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-phone';
+import xhrAuthenticatorEnrollPhoneVoice from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-phone-voice';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
+import invalidCode from '../../../packages/playground/mocks/data/idp/idx/error-email-verify';
 
 const smsMock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

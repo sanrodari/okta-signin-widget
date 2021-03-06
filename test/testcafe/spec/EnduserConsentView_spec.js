@@ -3,8 +3,8 @@ import { RequestMock, RequestLogger } from 'testcafe';
 import ConsentPageObject from '../framework/page-objects/ConsentPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 
-import xhrConsentEnduser from '../../../playground/mocks/data/idp/idx/consent-enduser';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrConsentEnduser from '../../../packages/playground/mocks/data/idp/idx/consent-enduser';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 
 
 const consentEnduserMock = RequestMock()

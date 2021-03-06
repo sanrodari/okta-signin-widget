@@ -3,9 +3,9 @@ import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import EnrollGoogleAuthenticatorPageObject from '../framework/page-objects/EnrollGoogleAuthenticatorPageObject';
 import { checkConsoleMessages } from '../framework/shared';
 
-import xhrEnrollGoogleAuthenticator from '../../../playground/mocks/data/idp/idx/authenticator-enroll-google-authenticator.json';
-import success from '../../../playground/mocks/data/idp/idx/success';
-import invalidOTP from '../../../playground/mocks/data/idp/idx/error-email-verify';
+import xhrEnrollGoogleAuthenticator from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-google-authenticator.json';
+import success from '../../../packages/playground/mocks/data/idp/idx/success';
+import invalidOTP from '../../../packages/playground/mocks/data/idp/idx/error-email-verify';
 
 const logger = RequestLogger(/challenge\/poll|challenge\/answer|challenge\/resend/,
   {

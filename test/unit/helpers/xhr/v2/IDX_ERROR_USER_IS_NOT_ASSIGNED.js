@@ -1,4 +1,4 @@
-import xhrIdxError from '../../../../../playground/mocks/data/idp/idx/error-user-is-not-assigned.json';
+import xhrIdxError from '../../../../../packages/playground/mocks/data/idp/idx/error-user-is-not-assigned.json';
 
 module.exports = {
   state: 400,

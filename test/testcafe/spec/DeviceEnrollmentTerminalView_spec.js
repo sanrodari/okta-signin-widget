@@ -1,8 +1,8 @@
 import {ClientFunction, RequestLogger, RequestMock} from 'testcafe';
 import DeviceEnrollmentTerminalPageObject from '../framework/page-objects/DeviceEnrollmentTerminalPageObject';
-import IOSOdaEnrollment from '../../../playground/mocks/data/idp/idx/oda-enrollment-ios';
-import AndroidOdaEnrollment from '../../../playground/mocks/data/idp/idx/oda-enrollment-android';
-import MdmEnrollment from '../../../playground/mocks/data/idp/idx/mdm-enrollment';
+import IOSOdaEnrollment from '../../../packages/playground/mocks/data/idp/idx/oda-enrollment-ios';
+import AndroidOdaEnrollment from '../../../packages/playground/mocks/data/idp/idx/oda-enrollment-android';
+import MdmEnrollment from '../../../packages/playground/mocks/data/idp/idx/mdm-enrollment';
 
 const logger = RequestLogger(/introspect/);
 

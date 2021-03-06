@@ -4,8 +4,8 @@ import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import ChallengeSecurityQuestionPageObject from '../framework/page-objects/ChallengeSecurityQuestionPageObject';
 import { checkConsoleMessages } from '../framework/shared';
 
-import xhrAuthenticatorVerifySecurityQuestion from '../../../playground/mocks/data/idp/idx/authenticator-verification-security-question';
-import success from '../../../playground/mocks/data/idp/idx/success';
+import xhrAuthenticatorVerifySecurityQuestion from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-security-question';
+import success from '../../../packages/playground/mocks/data/idp/idx/success';
 
 const authenticatorRequiredSecurityQuestionMock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

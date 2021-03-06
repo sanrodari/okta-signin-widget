@@ -2,10 +2,10 @@ import { RequestMock, RequestLogger } from 'testcafe';
 import FactorEnrollPasswordPageObject from '../framework/page-objects/FactorEnrollPasswordPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import xhrAuthenticatorExpiredPassword from '../../../playground/mocks/data/idp/idx/authenticator-expired-password';
-import xhrAuthenticatorExpiredPasswordNoComplexity from '../../../playground/mocks/data/idp/idx/authenticator-expired-password-no-complexity';
-import xhrAuthenticatorExpiredPasswordWithEnrollment from '../../../playground/mocks/data/idp/idx/authenticator-expired-password-with-enrollment-authenticator';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrAuthenticatorExpiredPassword from '../../../packages/playground/mocks/data/idp/idx/authenticator-expired-password';
+import xhrAuthenticatorExpiredPasswordNoComplexity from '../../../packages/playground/mocks/data/idp/idx/authenticator-expired-password-no-complexity';
+import xhrAuthenticatorExpiredPasswordWithEnrollment from '../../../packages/playground/mocks/data/idp/idx/authenticator-expired-password-with-enrollment-authenticator';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 
 const logger = RequestLogger(/challenge\/answer/,
   {

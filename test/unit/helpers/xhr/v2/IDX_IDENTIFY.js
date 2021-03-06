@@ -1,4 +1,4 @@
-import xhrIdxIdentify from '../../../../../playground/mocks/data/idp/idx/identify.json';
+import xhrIdxIdentify from '../../../../../packages/playground/mocks/data/idp/idx/identify.json';
 
 module.exports = {
   status: 200,

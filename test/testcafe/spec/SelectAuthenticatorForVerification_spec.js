@@ -3,21 +3,21 @@ import { RequestMock, RequestLogger } from 'testcafe';
 import SelectFactorPageObject from '../framework/page-objects/SelectAuthenticatorPageObject';
 import ChallengeFactorPageObject from '../framework/page-objects/ChallengeFactorPageObject';
 
-import xhrSelectAuthenticators from '../../../playground/mocks/data/idp/idx/authenticator-verification-select-authenticator';
-import xhrSelectAuthenticatorsNoNumber from '../../../playground/mocks/data/idp/idx/authenticator-verification-select-authenticator-no-number';
-import xhrSelectAuthenticatorsOktaVerify from '../../../playground/mocks/data/idp/idx/authenticator-verification-select-authenticator-ov-m2';
-import xhrSelectAuthenticatorsRecovery from '../../../playground/mocks/data/idp/idx/authenticator-verification-select-authenticator-for-recovery';
-import xhrAuthenticatorRequiredPassword from '../../../playground/mocks/data/idp/idx/authenticator-verification-password';
-import xhrAuthenticatorRequiredEmail from '../../../playground/mocks/data/idp/idx/authenticator-verification-email';
-import xhrAuthenticatorRequiredWebauthn from '../../../playground/mocks/data/idp/idx/authenticator-verification-webauthn';
-import xhrAuthenticatorRequiredOnPremMfa from '../../../playground/mocks/data/idp/idx/authenticator-verification-on-prem';
-import xhrAuthenticatorRequiredRsa from '../../../playground/mocks/data/idp/idx/authenticator-verification-rsa';
-import xhrAuthenticatorDuo from '../../../playground/mocks/data/idp/idx/authenticator-verification-duo';
-import xhrAuthenticatorOVTotp from '../../../playground/mocks/data/idp/idx/authenticator-verification-okta-verify-totp';
-import xhrAuthenticatorOVPush from '../../../playground/mocks/data/idp/idx/authenticator-verification-okta-verify-push';
-import xhrAuthenticatorOVFastPass from '../../../playground/mocks/data/idp/idx/authenticator-verification-okta-verify-signed-nonce-loopback';
-import xhrSelectAuthenticatorsOktaVerifyWithoutSignedNonce from '../../../playground/mocks/data/idp/idx/authenticator-verification-select-authenticator-without-signed-nonce';
-import xhrAuthenticatorCustomOTP from '../../../playground/mocks/data/idp/idx/authenticator-verification-custom-otp';
+import xhrSelectAuthenticators from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-select-authenticator';
+import xhrSelectAuthenticatorsNoNumber from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-select-authenticator-no-number';
+import xhrSelectAuthenticatorsOktaVerify from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-select-authenticator-ov-m2';
+import xhrSelectAuthenticatorsRecovery from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-select-authenticator-for-recovery';
+import xhrAuthenticatorRequiredPassword from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-password';
+import xhrAuthenticatorRequiredEmail from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-email';
+import xhrAuthenticatorRequiredWebauthn from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-webauthn';
+import xhrAuthenticatorRequiredOnPremMfa from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-on-prem';
+import xhrAuthenticatorRequiredRsa from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-rsa';
+import xhrAuthenticatorDuo from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-duo';
+import xhrAuthenticatorOVTotp from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-okta-verify-totp';
+import xhrAuthenticatorOVPush from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-okta-verify-push';
+import xhrAuthenticatorOVFastPass from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-okta-verify-signed-nonce-loopback';
+import xhrSelectAuthenticatorsOktaVerifyWithoutSignedNonce from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-select-authenticator-without-signed-nonce';
+import xhrAuthenticatorCustomOTP from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-custom-otp';
 
 const requestLogger = RequestLogger(
   /idx\/introspect|\/challenge/,

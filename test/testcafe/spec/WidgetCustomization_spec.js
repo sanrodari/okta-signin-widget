@@ -2,12 +2,12 @@ import { ClientFunction, RequestMock } from 'testcafe';
 import IdentityPageObject from '../framework/page-objects/IdentityPageObject';
 import FactorEnrollPasswordPageObject from '../framework/page-objects/FactorEnrollPasswordPageObject';
 import SelectFactorPageObject from '../framework/page-objects/SelectAuthenticatorPageObject';
-import xhrIdentifyWithPassword from '../../../playground/mocks/data/idp/idx/identify-with-password';
-import xhrSelectAuthenticator from '../../../playground/mocks/data/idp/idx/authenticator-verification-select-authenticator';
-import xhrSelectAuthenticatorEnroll from '../../../playground/mocks/data/idp/idx/authenticator-enroll-select-authenticator';
-import xhrAuthenticatorResetPassword from '../../../playground/mocks/data/idp/idx/authenticator-reset-password';
-import xhrAuthenticatorExpiredPassword from '../../../playground/mocks/data/idp/idx/authenticator-expired-password';
-import xhrAuthenticatorExpiryWarningPassword from '../../../playground/mocks/data/idp/idx/authenticator-expiry-warning-password';
+import xhrIdentifyWithPassword from '../../../packages/playground/mocks/data/idp/idx/identify-with-password';
+import xhrSelectAuthenticator from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-select-authenticator';
+import xhrSelectAuthenticatorEnroll from '../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-select-authenticator';
+import xhrAuthenticatorResetPassword from '../../../packages/playground/mocks/data/idp/idx/authenticator-reset-password';
+import xhrAuthenticatorExpiredPassword from '../../../packages/playground/mocks/data/idp/idx/authenticator-expired-password';
+import xhrAuthenticatorExpiryWarningPassword from '../../../packages/playground/mocks/data/idp/idx/authenticator-expiry-warning-password';
 
 const identifyMock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

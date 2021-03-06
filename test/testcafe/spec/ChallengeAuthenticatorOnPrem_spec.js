@@ -1,8 +1,8 @@
 import { RequestMock } from 'testcafe';
-import xhrAuthenticatorRequiredOnPrem from '../../../playground/mocks/data/idp/idx/authenticator-verification-on-prem';
-import xhrInvalidPasscode from '../../../playground/mocks/data/idp/idx/error-authenticator-verification-on-prem';
-import xhrPasscodeChange from '../../../playground/mocks/data/idp/idx/error-authenticator-verification-passcode-change-on-prem';
-import xhrSuccess from '../../../playground/mocks/data/idp/idx/success';
+import xhrAuthenticatorRequiredOnPrem from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-on-prem';
+import xhrInvalidPasscode from '../../../packages/playground/mocks/data/idp/idx/error-authenticator-verification-on-prem';
+import xhrPasscodeChange from '../../../packages/playground/mocks/data/idp/idx/error-authenticator-verification-passcode-change-on-prem';
+import xhrSuccess from '../../../packages/playground/mocks/data/idp/idx/success';
 import ChallengeOnPremPageObject from '../framework/page-objects/ChallengeOnPremPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import { checkConsoleMessages } from '../framework/shared';

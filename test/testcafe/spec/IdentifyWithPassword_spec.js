@@ -1,8 +1,8 @@
 import { RequestMock, RequestLogger } from 'testcafe';
 import IdentityPageObject from '../framework/page-objects/IdentityPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import xhrIdentifyWithPassword from '../../../playground/mocks/data/idp/idx/identify-with-password';
-import xhrErrorIdentify from '../../../playground/mocks/data/idp/idx/error-identify-access-denied';
+import xhrIdentifyWithPassword from '../../../packages/playground/mocks/data/idp/idx/identify-with-password';
+import xhrErrorIdentify from '../../../packages/playground/mocks/data/idp/idx/error-identify-access-denied';
 
 const identifyWithPasswordMock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

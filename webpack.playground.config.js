@@ -6,7 +6,7 @@ const fs = require('fs');
 const nodemon = require('nodemon');
 
 const TARGET = path.resolve(__dirname, 'target');
-const PLAYGROUND = path.resolve(__dirname, 'playground');
+const PLAYGROUND = path.resolve(__dirname, 'packages', 'playground');
 const DEV_SERVER_PORT = 3000;
 const MOCK_SERVER_PORT = 3030;
 const WIDGET_RC_JS = '.widgetrc.js';
@@ -76,13 +76,12 @@ module.exports = {
     }],
     before () {
       const script = path.resolve(
-        __dirname,
-        'playground',
+        PLAYGROUND,
         'mocks',
         'server.js'
       );
       const watch = [
-        path.resolve(__dirname, 'playground', 'mocks')
+        path.resolve(PLAYGROUND, 'mocks')
       ];
       const env = {
         MOCK_SERVER_PORT,

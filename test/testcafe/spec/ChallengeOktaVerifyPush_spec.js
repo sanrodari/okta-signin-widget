@@ -3,9 +3,9 @@ import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import ChallengeOktaVerifyPushPageObject from '../framework/page-objects/ChallengeOktaVerifyPushPageObject';
 import { checkConsoleMessages } from '../framework/shared';
 
-import pushPoll from '../../../playground/mocks/data/idp/idx/authenticator-verification-okta-verify-push';
-import success from '../../../playground/mocks/data/idp/idx/success';
-import pushReject from '../../../playground/mocks/data/idp/idx/authenticator-verification-okta-verify-reject-push';
+import pushPoll from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-okta-verify-push';
+import success from '../../../packages/playground/mocks/data/idp/idx/success';
+import pushReject from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-okta-verify-reject-push';
 
 const logger = RequestLogger(/challenge|challenge\/poll/,
   {

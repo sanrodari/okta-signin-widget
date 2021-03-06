@@ -4,13 +4,13 @@ import responseTransformer from 'v2/ion/responseTransformer';
 import uiSchemaTransformer from 'v2/ion/uiSchemaTransformer';
 import MockUtil from '../../../helpers/v2/MockUtil';
 
-import XHREnrollProfile from '../../../../../playground/mocks/data/idp/idx/enroll-profile.json';
-import XHRAuthenticatorRequiredEmail  from '../../../../../playground/mocks/data/idp/idx/authenticator-verification-email.json';
-import XHRAuthenticatorEnrollSelectAuthenticators  from '../../../../../playground/mocks/data/idp/idx/authenticator-enroll-select-authenticator.json';
-import XHRAuthenticatorEnrollDataPhone  from '../../../../../playground/mocks/data/idp/idx/authenticator-enroll-data-phone.json';
-import XHRAuthenticatorEnrollSecurityQuestion  from '../../../../../playground/mocks/data/idp/idx/authenticator-enroll-security-question.json';
-import XHRAuthenticatorEnrollOktaVerifyQr from '../../../../../playground/mocks/data/idp/idx/authenticator-enroll-ov-qr';
-import XHRIdentifyResponse from '../../../../../playground/mocks/data/idp/idx/identify.json';
+import XHREnrollProfile from '../../../../../packages/playground/mocks/data/idp/idx/enroll-profile.json';
+import XHRAuthenticatorRequiredEmail  from '../../../../../packages/playground/mocks/data/idp/idx/authenticator-verification-email.json';
+import XHRAuthenticatorEnrollSelectAuthenticators  from '../../../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-select-authenticator.json';
+import XHRAuthenticatorEnrollDataPhone  from '../../../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-data-phone.json';
+import XHRAuthenticatorEnrollSecurityQuestion  from '../../../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-security-question.json';
+import XHRAuthenticatorEnrollOktaVerifyQr from '../../../../../packages/playground/mocks/data/idp/idx/authenticator-enroll-ov-qr';
+import XHRIdentifyResponse from '../../../../../packages/playground/mocks/data/idp/idx/identify.json';
 
 describe('v2/ion/uiSchemaTransformer', function () {
   let testContext;

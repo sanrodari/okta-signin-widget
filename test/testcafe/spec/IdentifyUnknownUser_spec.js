@@ -1,8 +1,8 @@
 import IdentityPageObject from '../framework/page-objects/IdentityPageObject';
 import { checkConsoleMessages } from '../framework/shared';
-import unknownUser from '../../../playground/mocks/data/idp/idx/identify-unknown-user';
-import registeredUser from '../../../playground/mocks/data/idp/idx/authenticator-verification-select-authenticator.json';
-import identify from '../../../playground/mocks/data/idp/idx/identify';
+import unknownUser from '../../../packages/playground/mocks/data/idp/idx/identify-unknown-user';
+import registeredUser from '../../../packages/playground/mocks/data/idp/idx/authenticator-verification-select-authenticator.json';
+import identify from '../../../packages/playground/mocks/data/idp/idx/identify';
 import { RequestMock } from 'testcafe';
 
 const mock = RequestMock()
