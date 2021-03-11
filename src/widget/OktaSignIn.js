@@ -131,7 +131,7 @@ var OktaSignIn = (function () {
     }
 
     _.extend(this, Router.prototype.Events, {
-      on: function(...onArgs) {
+      on: function (...onArgs) {
         // custom events listener on widget instance to trap third-party callback errors
         const [event, callback] = onArgs;
         if (EVENTS_LIST.includes(event)) {
@@ -141,7 +141,7 @@ var OktaSignIn = (function () {
             } catch (err) {
               Logger.error(`Error happens on ${event} event:`, err);
             }
-          }
+          };
         }
         Router.prototype.Events.on.apply(this, onArgs);
       }
