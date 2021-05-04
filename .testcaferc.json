@@ -3,9 +3,5 @@
     "chrome:headless"
   ],
   "concurrency": 2,
-  "reporter": {
-    "name": "xunit",
-    "output": "build2/reports/junit/testcafe-results.xml"
-  },
   "src": "test/testcafe/spec/"
 }

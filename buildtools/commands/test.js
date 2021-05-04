@@ -17,6 +17,10 @@ exports.builder = {
   config: {
     description: 'Optional override for the test config file',
   },
+  filter: {
+    alias: 'f',
+    description: 'Run tests that match a grep/glob pattern (testcafe)',
+  },
   suiteHelp: {
     description: 'Run this to see the test CLI options',
   },
@@ -64,6 +68,14 @@ exports.handler = async (argv) => {
   // Get additional CLI args
   const additionalArgs = process.argv.slice(5).join(' ');
   cmd += `${help} ${additionalArgs}`;
+
+  if (argv.filter) {
+    // testcafe expects arguments to be passed as strings
+    const testcafeFilter = `--test-grep "${argv.filter}"`;
+    cmd = cmd
+      .replace('--filter', '')
+      .replace(argv.filter, testcafeFilter);
+  }
 
   const options = {
     stdio: 'inherit',
