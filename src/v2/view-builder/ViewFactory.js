@@ -218,7 +218,9 @@ const VIEWS_MAPPING = {
     // Seems not ideal, shall try to create dedicated View, which may
     // inherit from IdentifierView
     [DEFAULT]: IdentifierView,
-    [IDP_FORM_TYPE.X509]: ChallengePIVView,
+  },
+  [RemediationForms.PIV_IDP]: {
+    [DEFAULT]: ChallengePIVView,
   },
   [RemediationForms.DEVICE_ENROLLMENT_TERMINAL]: {
     [DEFAULT]: DeviceEnrollmentTerminalView,
@@ -232,15 +234,13 @@ const VIEWS_MAPPING = {
 };
 
 module.exports = {
-  create(formName, authenticatorKey = DEFAULT, formType = DEFAULT) {
+  create(formName, authenticatorKey = DEFAULT) {
     const config = VIEWS_MAPPING[formName];
     if (!config) {
       Logger.warn(`Cannot find customized View for ${formName}.`);
       return BaseView;
     }
-    // for redirect-idps, use formType to get to the right view.
-    let viewKey = (formName === RemediationForms.REDIRECT_IDP) ? formType : authenticatorKey;
-    let View = config[viewKey] || config[DEFAULT];
+    const View = config[authenticatorKey] || config[DEFAULT];
     if (!View) {
       Logger.warn(`Cannot find customized View for ${formName} + ${authenticatorKey}.`);
       return BaseView;

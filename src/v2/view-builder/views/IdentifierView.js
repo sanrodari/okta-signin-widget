@@ -1,6 +1,6 @@
 import { loc, createCallout } from 'okta';
 import { FORMS as RemediationForms } from '../../ion/RemediationConstants';
-import { BaseForm, BaseView, createIdpButtons, createCustomButtons } from '../internals';
+import { BaseForm, BaseView, createIdpButtons, createPIVButton, createCustomButtons } from '../internals';
 import DeviceFingerprinting from '../utils/DeviceFingerprinting';
 import IdentifierFooter from '../components/IdentifierFooter';
 import signInWithIdps from './signin/SignInWithIdps';
@@ -55,7 +55,11 @@ const Body = BaseForm.extend({
     const hasUISchemas = this.getUISchema().length > 0;
 
     // add external idps buttons
-    const idpButtons = createIdpButtons(this.options.settings, this.options.appState);
+    const idpButtons = createIdpButtons(this.options.appState.get('remediations'));
+    const pivButton = createPIVButton(this.options.settings, this.options.appState);
+    if (pivButton) {
+      idpButtons.push(pivButton);
+    }
     if (Array.isArray(idpButtons) && idpButtons.length) {
       this.add(signInWithIdps, {
         selector: '.o-form-button-bar',

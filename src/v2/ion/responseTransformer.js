@@ -11,7 +11,7 @@
  */
 
 import { _ } from 'okta';
-import { FORMS as RemediationForms } from './RemediationConstants';
+import { FORMS as RemediationForms, IDP_FORM_TYPE } from './RemediationConstants';
 
 /**
  * Transform the ion spec response into canonical format.
@@ -197,6 +197,25 @@ const modifyFormNameForIdPAuthenticator = result => {
 
 };
 
+/**
+ * API reuses `redirect-idp` remeditaion form for PIV IdP.
+ * However the UX for PIV IdP is different from social idps in terms of the PIV
+ * instructions view that needs to be rendered before we redirect to mtls.
+ *
+ * This function changes `redirect-idp` to `piv-idp` for PIV IdP.
+ */
+ const modifyFormNameForPIVIdP = result => {
+  if (Array.isArray(result.remediations)) {
+    const pivIdp = result.remediations.filter(
+      remediation => {
+        return remediation.name === RemediationForms.REDIRECT_IDP
+          && remediation.type === IDP_FORM_TYPE.X509;
+      }
+    );
+    pivIdp[0].name = 'piv-idp';
+  }
+};
+
 const isFailureRedirect = (result) => {
   const context = result.idx.context;
   return (context.failure && context.failure.name === 'failure-redirect');
@@ -261,6 +280,7 @@ const convert = (settings, idx = {}, lastResult = null) => {
   // and update the form for IdP Authenticators.
   injectIdPConfigButtonToRemediation(settings, result);
   modifyFormNameForIdPAuthenticator(result);
+  modifyFormNameForPIVIdP(result);
 
   if (!isError(result)) { // Only redirect to the IdP if we are not in an error flow
     convertRedirectIdPToSuccessRedirectIffOneIdp(settings, result, lastResult);

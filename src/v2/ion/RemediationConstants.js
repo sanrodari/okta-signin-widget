@@ -52,6 +52,7 @@ const FORMS = {
   FAILURE_REDIRECT: 'failure-redirect',
   SUCCESS_REDIRECT: 'success-redirect',
   REDIRECT_IDP: 'redirect-idp',
+  PIV_IDP: 'piv-idp',
 
   DEVICE_CHALLENGE_POLL: 'device-challenge-poll',
   DEVICE_APPLE_SSO_EXTENSION: 'device-apple-sso-extension',
