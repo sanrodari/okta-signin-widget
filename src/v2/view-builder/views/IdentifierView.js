@@ -55,7 +55,7 @@ const Body = BaseForm.extend({
     const hasUISchemas = this.getUISchema().length > 0;
 
     // add external idps buttons
-    const idpButtons = createIdpButtons(this.options.appState.get('remediations'));
+    const idpButtons = createIdpButtons(this.options.settings, this.options.appState);
     if (Array.isArray(idpButtons) && idpButtons.length) {
       this.add(signInWithIdps, {
         selector: '.o-form-button-bar',

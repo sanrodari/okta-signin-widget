@@ -128,6 +128,10 @@ const HINTS = {
   CAPTCHA: 'captcha',
 };
 
+const IDP_FORM_TYPE = {
+  X509: 'X509',
+};
+
 export {
   ACTIONS,
   FORMS,
@@ -137,5 +141,6 @@ export {
   AUTHENTICATOR_KEY,
   AUTHENTICATOR_METHODS,
   FORM_NAME_TO_OPERATION_MAP,
-  HINTS
+  HINTS,
+  IDP_FORM_TYPE
 };

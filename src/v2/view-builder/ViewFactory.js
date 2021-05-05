@@ -1,5 +1,5 @@
 import Logger from 'util/Logger';
-import { AUTHENTICATOR_KEY, FORMS as RemediationForms } from '../ion/RemediationConstants';
+import { AUTHENTICATOR_KEY, FORMS as RemediationForms, IDP_FORM_TYPE } from '../ion/RemediationConstants';
 import { BaseView } from './internals';
 
 // Identify
@@ -92,6 +92,9 @@ import AuthenticatorSymantecView from './views/symantec/AuthenticatorSymantecVie
 
 // Device code activate view
 import DeviceCodeActivateView from './views/device/DeviceCodeActivateView';
+
+// X509 PIV view
+import ChallengePIVView from './views/piv/ChallengePIVView';
 
 const DEFAULT = '_';
 
@@ -215,6 +218,7 @@ const VIEWS_MAPPING = {
     // Seems not ideal, shall try to create dedicated View, which may
     // inherit from IdentifierView
     [DEFAULT]: IdentifierView,
+    [IDP_FORM_TYPE.X509]: ChallengePIVView,
   },
   [RemediationForms.DEVICE_ENROLLMENT_TERMINAL]: {
     [DEFAULT]: DeviceEnrollmentTerminalView,
@@ -228,13 +232,15 @@ const VIEWS_MAPPING = {
 };
 
 module.exports = {
-  create(formName, authenticatorKey = DEFAULT) {
+  create(formName, authenticatorKey = DEFAULT, formType = DEFAULT) {
     const config = VIEWS_MAPPING[formName];
     if (!config) {
       Logger.warn(`Cannot find customized View for ${formName}.`);
       return BaseView;
     }
-    const View = config[authenticatorKey] || config[DEFAULT];
+    // for redirect-idps, use formType to get to the right view.
+    let viewKey = (formName === RemediationForms.REDIRECT_IDP) ? formType : authenticatorKey;
+    let View = config[viewKey] || config[DEFAULT];
     if (!View) {
       Logger.warn(`Cannot find customized View for ${formName} + ${authenticatorKey}.`);
       return BaseView;

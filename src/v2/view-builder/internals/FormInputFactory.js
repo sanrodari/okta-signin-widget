@@ -3,7 +3,7 @@ import { Collection, _, loc, createButton } from 'okta';
 import AuthenticatorEnrollOptions from '../components/AuthenticatorEnrollOptions';
 import AuthenticatorVerifyOptions from '../components/AuthenticatorVerifyOptions';
 import { getAuthenticatorDataForEnroll, getAuthenticatorDataForVerification } from '../utils/AuthenticatorUtil';
-import { AUTHENTICATOR_KEY, FORMS as RemediationForms } from '../../ion/RemediationConstants';
+import { AUTHENTICATOR_KEY, FORMS as RemediationForms, IDP_FORM_TYPE } from '../../ion/RemediationConstants';
 import IDP from '../../../util/IDP';
 import AdminScopeList from '../../../views/admin-consent/ScopeList';
 import EnduserScopeList from '../../../views/consent/ScopeList';
@@ -101,8 +101,9 @@ const create = function(uiSchemaObj) {
  * }
  *
  */
-const createIdpButtons = (remediations) => {
-  const redirectIdpRemediations = remediations.filter(idp => idp.name === RemediationForms.REDIRECT_IDP);
+const createIdpButtons = (settings, appState) => {
+  const redirectIdpRemediations =
+    appState.get('remediations').filter(idp => idp.name === RemediationForms.REDIRECT_IDP);
 
   if (!Array.isArray(redirectIdpRemediations)) {
     return [];
@@ -112,6 +113,11 @@ const createIdpButtons = (remediations) => {
   return redirectIdpRemediations.map(idpObject => {
     let type = idpObject.type?.toLowerCase();
     let displayName;
+
+    // check if redirect-idp is x509 type
+    if (type === IDP_FORM_TYPE.X509.toLowerCase()) {
+      return createPIVButton(settings, appState);
+    }
 
     if (!_.contains(IDP.SUPPORTED_SOCIAL_IDPS, type)) {
       type = 'general-idp';
@@ -139,6 +145,22 @@ const createIdpButtons = (remediations) => {
     };
     return button;
   });
+};
+
+const createPIVButton = (settings, appState) => {
+  const pivConfig = settings.get('piv');
+  let className = pivConfig.className || '';
+  return {
+    attributes: {
+      'data-se': 'piv-card-button',
+    },
+    className: className + ' piv-button',
+    title: pivConfig.text || loc('piv.cac.card', 'login'),
+    click: (e) => {
+      e.preventDefault();
+      appState.trigger('switchForm', RemediationForms.REDIRECT_IDP, IDP_FORM_TYPE.X509);
+    },
+  };
 };
 
 const createCustomButtons = (settings) => {
