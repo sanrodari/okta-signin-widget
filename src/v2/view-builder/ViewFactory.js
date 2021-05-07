@@ -93,6 +93,9 @@ import AuthenticatorSymantecView from './views/symantec/AuthenticatorSymantecVie
 // Device code activate view
 import DeviceCodeActivateView from './views/device/DeviceCodeActivateView';
 
+// YubiKey
+import AuthenticatorYubiKeyView from './views/yubikey/AuthenticatorYubiKeyView';
+
 const DEFAULT = '_';
 
 const VIEWS_MAPPING = {
@@ -148,6 +151,7 @@ const VIEWS_MAPPING = {
     [AUTHENTICATOR_KEY.SECURITY_QUESTION]: EnrollAuthenticatorSecurityQuestion,
     [AUTHENTICATOR_KEY.SYMANTEC_VIP]: AuthenticatorSymantecView,
     [AUTHENTICATOR_KEY.WEBAUTHN]: EnrollWebauthnView,
+    [AUTHENTICATOR_KEY.YUBIKEY]: AuthenticatorYubiKeyView,
   },
   [RemediationForms.CHALLENGE_AUTHENTICATOR]: {
     [AUTHENTICATOR_KEY.CUSTOM_OTP]: ChallengeCustomOTPAuthenticatorView,
@@ -163,6 +167,7 @@ const VIEWS_MAPPING = {
     [AUTHENTICATOR_KEY.SECURITY_QUESTION]: ChallengeAuthenticatorSecurityQuestion,
     [AUTHENTICATOR_KEY.SYMANTEC_VIP]: AuthenticatorSymantecView,
     [AUTHENTICATOR_KEY.WEBAUTHN]: ChallengeWebauthnView,
+    [AUTHENTICATOR_KEY.YUBIKEY]: AuthenticatorYubiKeyView,
   },
   [RemediationForms.ENROLL_POLL]: {
     [AUTHENTICATOR_KEY.OV]: EnrollPollOktaVerifyView,

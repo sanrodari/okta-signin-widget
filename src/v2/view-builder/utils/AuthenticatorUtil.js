@@ -164,6 +164,17 @@ const getAuthenticatorData = function(authenticator, isVerifyAuthenticator) {
     });
     break;
   }
+
+  case AUTHENTICATOR_KEY.YUBIKEY: {
+    Object.assign(authenticatorData, {
+      description: isVerifyAuthenticator
+        ? ''
+        : loc('oie.yubikey.authenticator.description', 'login'),
+      iconClassName: 'mfa-yubikey',
+      buttonDataSeAttr: getButtonDataSeAttr(authenticator),
+    });
+    break;
+  }
   }
 
   return authenticatorData;
