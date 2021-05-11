@@ -1,6 +1,7 @@
 import { _, loc } from 'okta';
 import { BaseForm } from '../../internals';
 import BaseAuthenticatorView from '../../components/BaseAuthenticatorView';
+import PIVHeader from './PIVHeader';
 
 const Body = BaseForm.extend({
 
@@ -69,6 +70,7 @@ const Body = BaseForm.extend({
 });
 
 export default BaseAuthenticatorView.extend({
+  Header: PIVHeader,
   Body,
   postRender() {
     BaseAuthenticatorView.prototype.postRender.apply(this, arguments);
