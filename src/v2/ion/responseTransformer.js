@@ -204,7 +204,7 @@ const modifyFormNameForIdPAuthenticator = result => {
  *
  * This function changes `redirect-idp` to `piv-idp` for PIV IdP.
  */
- const modifyFormNameForPIVIdP = result => {
+const modifyFormNameForPIVIdP = result => {
   if (Array.isArray(result.remediations)) {
     const pivIdp = result.remediations.filter(
       remediation => {
@@ -212,7 +212,9 @@ const modifyFormNameForIdPAuthenticator = result => {
           && remediation.type === IDP_FORM_TYPE.X509;
       }
     );
-    pivIdp[0].name = RemediationForms.PIV_IDP;
+    if (pivIdp.length === 1) {
+      pivIdp[0].name = RemediationForms.PIV_IDP;
+    }
   }
 };
 

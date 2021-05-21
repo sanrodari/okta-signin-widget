@@ -1,4 +1,4 @@
-import { _, loc } from 'okta';
+import { loc, createCallout } from 'okta';
 import { BaseForm } from '../../internals';
 import BaseAuthenticatorView from '../../components/BaseAuthenticatorView';
 import PIVHeader from './PIVHeader';
@@ -31,7 +31,7 @@ const Body = BaseForm.extend({
         <p>${loc('piv.cac.card.insert', 'login')}</p>
         <div data-se='piv-waiting' class='okta-waiting-spinner'></div>
       </div>`
-    )
+    );
   },
   
   startAuthentication: function() {

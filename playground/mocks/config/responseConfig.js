@@ -705,5 +705,5 @@ const pivAuth = {
 };
 
 module.exports = {
-  mocks: pivAuth,
+  mocks: idx,
 };
