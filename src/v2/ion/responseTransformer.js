@@ -212,7 +212,7 @@ const modifyFormNameForIdPAuthenticator = result => {
           && remediation.type === IDP_FORM_TYPE.X509;
       }
     );
-    pivIdp[0].name = 'piv-idp';
+    pivIdp[0].name = RemediationForms.PIV_IDP;
   }
 };
 
