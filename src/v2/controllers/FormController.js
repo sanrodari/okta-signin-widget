@@ -42,7 +42,6 @@ export default Controller.extend({
     const TheView = ViewFactory.create(
       currentViewState.name,
       this.options.appState.get('authenticatorKey'),
-      currentViewState.type,
     );
     try {
       this.formView = this.add(TheView, {
@@ -108,7 +107,7 @@ export default Controller.extend({
     return eventData;
   },
 
-  handleSwitchForm(formName, formType) {
+  handleSwitchForm(formName) {
     // trigger formName change to change view
     if (this.options.appState.get('messages')) {
       // Clear messages before calling switch form.
@@ -116,9 +115,6 @@ export default Controller.extend({
       // and user hits back to factors list which triggers switchForm,
       // those error will show up on another screen that gets rendered after switchForm
       this.options.appState.unset('messages');
-    }
-    if (formType) {
-      this.options.appState.set('currentFormType', formType);
     }
     this.options.appState.set('currentFormName', formName);
   },

@@ -89,19 +89,13 @@ export default Model.extend({
 
   getCurrentViewState() {
     const currentFormName = this.get('currentFormName');
-    const currentFormType = this.get('currentFormType');
 
     if (!currentFormName) {
       return;
     }
 
     // didn't expect `remediations` is empty. See `setIonResponse`.
-    const remediationsWithFormName = this.get('remediations').filter(r => r.name === currentFormName);
-    let currentViewState = remediationsWithFormName[0];
-
-    if (currentFormType) {
-      currentViewState = remediationsWithFormName.filter(r => r.type === currentFormType)[0];
-    }
+    const currentViewState = this.get('remediations').filter(r => r.name === currentFormName)[0];
 
     if (!currentViewState ) {
       Logger.error('Panic!!');

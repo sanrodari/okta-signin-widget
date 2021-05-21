@@ -1,5 +1,5 @@
 import Logger from 'util/Logger';
-import { AUTHENTICATOR_KEY, FORMS as RemediationForms, IDP_FORM_TYPE } from '../ion/RemediationConstants';
+import { AUTHENTICATOR_KEY, FORMS as RemediationForms } from '../ion/RemediationConstants';
 import { BaseView } from './internals';
 
 // Identify
