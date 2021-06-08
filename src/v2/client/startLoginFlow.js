@@ -53,7 +53,7 @@ export async function startLoginFlow(settings, appId) {
         // 1. remove session.stateHandle
         sessionStorageHelper.removeStateHandle(appId);
         // 2. start the login again in order to introspect on settings.stateHandle
-        return startLoginFlow(settings);
+        return startLoginFlow(settings, appId);
       });
   }
 

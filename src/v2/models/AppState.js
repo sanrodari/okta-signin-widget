@@ -95,6 +95,10 @@ export default Model.extend({
     }
   },
 
+  getAppId() {
+    return this.get('idx')?.context?.app?.value?.id;
+  },
+
   getCurrentViewState() {
     const currentFormName = this.get('currentFormName');
 

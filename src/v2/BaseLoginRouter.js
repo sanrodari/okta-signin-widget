@@ -85,7 +85,7 @@ export default Router.extend({
     if (idxResponse.interactionCode) {
       // Although session.stateHandle isn't used by interation flow,
       // it's better to clean up at the end of the flow.
-      sessionStorageHelper.removeStateHandle();
+      sessionStorageHelper.removeStateHandle(this.appState.getAppId());
       // This is the end of the IDX flow, now entering OAuth
       return interactionCodeFlow(this.settings, idxResponse);
     }
@@ -104,9 +104,8 @@ export default Router.extend({
     //    -> introspect using options.stateHandle
     if (lastResponse) {
       const stateHandle = idxResponse?.context?.stateHandle;
-      const appId = idxResponse?.context?.app?.value?.id;
       // store stateHandle per app context
-      sessionStorageHelper.setStateHandle(stateHandle, appId);
+      sessionStorageHelper.setStateHandle(stateHandle, this.appState.getAppId());
     }
 
     // transform response
@@ -202,9 +201,7 @@ export default Router.extend({
     // and remove it from `settings` afterwards as IDX response always has
     // state token (which will be set into AppState)
     if (this.settings.get('oieEnabled')) {
-      const appId = this.appState.get('idx')?.context?.app?.value?.id;
-
-      return startLoginFlow(this.settings, appId)
+      return startLoginFlow(this.settings, this.appState.getAppId())
         .then(idxResp => {
           this.settings.unset('stateToken');
           this.settings.unset('proxyIdxResponse');

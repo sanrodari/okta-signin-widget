@@ -63,10 +63,11 @@ export default Controller.extend({
   },
 
   clearMetadata() {
-    const formName = this.options.appState.get('currentFormName');
+    const { appState } = this.options;
+    const formName = appState.get('currentFormName');
     // TODO: OKTA-392835 shall not clear state handle at terminal page
     if (TERMINAL_FORMS.includes(formName)) {
-      sessionStorageHelper.removeStateHandle();
+      sessionStorageHelper.removeStateHandle(appState.getAppId());
     }
   },
 
@@ -131,11 +132,12 @@ export default Controller.extend({
   },
 
   handleInvokeAction(actionPath = '') {
-    const idx = this.options.appState.get('idx');
+    const { appState, settings } = this.options;
+    const idx = appState.get('idx');
 
     if (actionPath === 'cancel') {
-      clearTransactionMeta(this.options.settings);
-      sessionStorageHelper.removeStateHandle();
+      clearTransactionMeta(settings);
+      sessionStorageHelper.removeStateHandle(appState.getAppId());
       this.options.appState.clearAppStateCache();
     }
 
@@ -164,6 +166,7 @@ export default Controller.extend({
   },
 
   handleSaveForm(model) {
+    const { appState, settings } = this.options;
     const formName = model.get('formName');
 
     // Toggle Form saving status (e.g. disabling save button, etc)
@@ -174,7 +177,7 @@ export default Controller.extend({
     if (model.get('useRedirect')) {
       // Clear when navigates away from SIW page, e.g. success, IdP Authenticator.
       // Because SIW sort of finished its current /transaction/
-      sessionStorageHelper.removeStateHandle();
+      sessionStorageHelper.removeStateHandle(appState.getAppId());
 
       const currentViewState = this.options.appState.getCurrentViewState();
       Util.redirectWithFormGet(currentViewState.href);
@@ -185,9 +188,9 @@ export default Controller.extend({
     const modelJSON = this.transformIdentifier(formName, model);
 
     // Error out when this is not a remediation form. Unexpected Exception.
-    const idx = this.options.appState.get('idx');
-    if (!this.options.appState.hasRemediationObject(formName)) {
-      this.options.settings.callGlobalError(`Cannot find http action for "${formName}".`);
+    const idx = appState.get('idx');
+    if (!appState.hasRemediationObject(formName)) {
+      settings.callGlobalError(`Cannot find http action for "${formName}".`);
       this.showFormErrors(this.formView.model, 'Cannot find action to proceed.');
       return;
     }
