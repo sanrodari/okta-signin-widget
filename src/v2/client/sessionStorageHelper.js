@@ -12,14 +12,14 @@
 
 const STATE_HANDLE_SESSION_STORAGE_KEY = 'osw-oie-state-handle';
 
-const removeStateHandle = () => {
-  sessionStorage.removeItem(STATE_HANDLE_SESSION_STORAGE_KEY);
+const removeStateHandle = (appId) => {
+  sessionStorage.removeItem(`${STATE_HANDLE_SESSION_STORAGE_KEY}-${appId}`);
 };
-const setStateHandle = (token) => {
-  sessionStorage.setItem(STATE_HANDLE_SESSION_STORAGE_KEY, token);
+const setStateHandle = (token, appId) => {
+  sessionStorage.setItem(`${STATE_HANDLE_SESSION_STORAGE_KEY}-${appId}`, token);
 };
-const getStateHandle = () => {
-  return sessionStorage.getItem(STATE_HANDLE_SESSION_STORAGE_KEY);
+const getStateHandle = (appId) => {
+  return sessionStorage.getItem(`${STATE_HANDLE_SESSION_STORAGE_KEY}-${appId}`);
 };
 
 export default {
