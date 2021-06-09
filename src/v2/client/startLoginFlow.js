@@ -30,7 +30,7 @@ export async function startLoginFlow(settings, appId) {
   }
 
   if (settings.get('overrideExistingStateToken')) {
-    sessionStorageHelper.removeStateHandle(appId);
+    sessionStorageHelper.removeStateHandle();
   }
 
   // Use or acquire interactionHandle
@@ -41,9 +41,18 @@ export async function startLoginFlow(settings, appId) {
   // Use stateToken from session storage if exists
   // See more details at ./docs/use-session-token-prior-to-settings.png
   const stateHandleFromSession = sessionStorageHelper.getStateHandle(appId);
+
   if (stateHandleFromSession) {
     return introspect(settings, stateHandleFromSession)
       .then((idxResp) => {
+        const newAppId = idxResp?.context?.app?.value?.id;
+        const oldAppId = sessionStorageHelper.getAppId();
+
+        if (oldAppId && (oldAppId !== newAppId)) {
+          sessionStorageHelper.removeStateHandle();
+          return startLoginFlow(settings, newAppId);
+        }
+
         // 1. abandon the settings.stateHandle given session.stateHandle is still valid
         settings.set('stateToken', stateHandleFromSession);
         // 2. chain the idxResp to next handler
@@ -51,7 +60,7 @@ export async function startLoginFlow(settings, appId) {
       })
       .catch(() => {
         // 1. remove session.stateHandle
-        sessionStorageHelper.removeStateHandle(appId);
+        sessionStorageHelper.removeStateHandle();
         // 2. start the login again in order to introspect on settings.stateHandle
         return startLoginFlow(settings, appId);
       });

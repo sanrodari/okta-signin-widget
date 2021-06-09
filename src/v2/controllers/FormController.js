@@ -67,7 +67,7 @@ export default Controller.extend({
     const formName = appState.get('currentFormName');
     // TODO: OKTA-392835 shall not clear state handle at terminal page
     if (TERMINAL_FORMS.includes(formName)) {
-      sessionStorageHelper.removeStateHandle(appState.getAppId());
+      sessionStorageHelper.removeStateHandle();
     }
   },
 
@@ -137,7 +137,7 @@ export default Controller.extend({
 
     if (actionPath === 'cancel') {
       clearTransactionMeta(settings);
-      sessionStorageHelper.removeStateHandle(appState.getAppId());
+      sessionStorageHelper.removeStateHandle();
       this.options.appState.clearAppStateCache();
     }
 
@@ -177,7 +177,7 @@ export default Controller.extend({
     if (model.get('useRedirect')) {
       // Clear when navigates away from SIW page, e.g. success, IdP Authenticator.
       // Because SIW sort of finished its current /transaction/
-      sessionStorageHelper.removeStateHandle(appState.getAppId());
+      sessionStorageHelper.removeStateHandle();
 
       const currentViewState = this.options.appState.getCurrentViewState();
       Util.redirectWithFormGet(currentViewState.href);

@@ -8,7 +8,10 @@ import ChallengeEmailPageObject from '../framework/page-objects/ChallengeEmailPa
 import IdentityPageObject from '../framework/page-objects/IdentityPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import TerminalPageObject from '../framework/page-objects/TerminalPageObject';
-import { getStateHandleFromSessionStorage } from '../framework/shared';
+
+export const getStateHandleFromSessionStorage = ClientFunction(() => {
+  return window.sessionStorage.getItem('osw-oie-state-handle-0oa1bowRUq4I8pIfd0g4');
+});
 
 const identifyChallengeMock = RequestMock()
   .onRequestTo('http://localhost:3000/idp/idx/introspect')

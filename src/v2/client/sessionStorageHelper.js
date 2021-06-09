@@ -11,19 +11,36 @@
  */
 
 const STATE_HANDLE_SESSION_STORAGE_KEY = 'osw-oie-state-handle';
+const APP_ID_SESSION_STORAGE_KEY = 'osw-oie-app-id';
 
-const removeStateHandle = (appId) => {
-  sessionStorage.removeItem(`${STATE_HANDLE_SESSION_STORAGE_KEY}-${appId}`);
+const getSessionStorageKey = (appId) => {
+  return appId ? `${STATE_HANDLE_SESSION_STORAGE_KEY}-${appId}` : STATE_HANDLE_SESSION_STORAGE_KEY;
 };
+
+const removeStateHandle = () => {
+  const appId = sessionStorage.getItem(APP_ID_SESSION_STORAGE_KEY);
+  sessionStorage.removeItem(APP_ID_SESSION_STORAGE_KEY);
+  sessionStorage.removeItem(getSessionStorageKey(appId));
+};
+
 const setStateHandle = (token, appId) => {
-  sessionStorage.setItem(`${STATE_HANDLE_SESSION_STORAGE_KEY}-${appId}`, token);
+  // store appId separately because it is possible for a remediation response to not return an app id
+  sessionStorage.setItem(APP_ID_SESSION_STORAGE_KEY, appId);
+  sessionStorage.setItem(getSessionStorageKey(appId), token);
 };
-const getStateHandle = (appId) => {
-  return sessionStorage.getItem(`${STATE_HANDLE_SESSION_STORAGE_KEY}-${appId}`);
+
+const getStateHandle = () => {
+  const appId = sessionStorage.getItem(APP_ID_SESSION_STORAGE_KEY);
+  return sessionStorage.getItem(getSessionStorageKey(appId));
+};
+
+const getAppId = () => {
+  return sessionStorage.getItem(APP_ID_SESSION_STORAGE_KEY);
 };
 
 export default {
   removeStateHandle,
   setStateHandle,
   getStateHandle,
+  getAppId,
 };

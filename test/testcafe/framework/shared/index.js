@@ -35,6 +35,3 @@ export const Constants = {
   TESTCAFE_DEFAULT_AJAX_WAIT: 3000, // 3seconds
 };
 
-export const getStateHandleFromSessionStorage = ClientFunction(() => {
-  return window.sessionStorage.getItem('osw-oie-state-handle');
-});

@@ -85,7 +85,7 @@ export default Router.extend({
     if (idxResponse.interactionCode) {
       // Although session.stateHandle isn't used by interation flow,
       // it's better to clean up at the end of the flow.
-      sessionStorageHelper.removeStateHandle(this.appState.getAppId());
+      sessionStorageHelper.removeStateHandle();
       // This is the end of the IDX flow, now entering OAuth
       return interactionCodeFlow(this.settings, idxResponse);
     }
