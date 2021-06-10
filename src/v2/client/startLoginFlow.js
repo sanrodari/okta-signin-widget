@@ -43,19 +43,22 @@ export async function startLoginFlow(settings) {
   const stateHandleFromSession = sessionStorageHelper.getStateHandle();
 
   if (stateHandleFromSession) {
+    // try to introspect with stateHandle from sessionStorage
+    // if introspect fails, try again with stateHandle from settings
     return introspect(settings, stateHandleFromSession)
       .then((idxResp) => {
         const oldAppId = sessionStorageHelper.getAppId();
         const newAppId = idxResp?.context?.app?.value?.id;
-
+        // if app context is different from sessionStorage
+        // clear stateHandle in sessionStorage and try introspect again
         if (oldAppId && (oldAppId !== newAppId)) {
           sessionStorageHelper.removeStateHandle();
           return startLoginFlow(settings);
         }
 
-        // 1. abandon the settings.stateHandle given session.stateHandle is still valid
+        // update settings.stateToken with valid session.stateHandle
         settings.set('stateToken', stateHandleFromSession);
-        // 2. chain the idxResp to next handler
+        // chain the idxResp to next handler
         return idxResp;
       })
       .catch(() => {
