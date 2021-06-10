@@ -23,7 +23,7 @@ const handleProxyIdxResponse = async (settings) => {
   });
 };
 
-export async function startLoginFlow(settings, appId) {
+export async function startLoginFlow(settings) {
   // Return a preset response
   if (settings.get('proxyIdxResponse')) {
     return handleProxyIdxResponse(settings);
@@ -40,17 +40,17 @@ export async function startLoginFlow(settings, appId) {
   }
   // Use stateToken from session storage if exists
   // See more details at ./docs/use-session-token-prior-to-settings.png
-  const stateHandleFromSession = sessionStorageHelper.getStateHandle(appId);
+  const stateHandleFromSession = sessionStorageHelper.getStateHandle();
 
   if (stateHandleFromSession) {
     return introspect(settings, stateHandleFromSession)
       .then((idxResp) => {
-        const newAppId = idxResp?.context?.app?.value?.id;
         const oldAppId = sessionStorageHelper.getAppId();
+        const newAppId = idxResp?.context?.app?.value?.id;
 
         if (oldAppId && (oldAppId !== newAppId)) {
           sessionStorageHelper.removeStateHandle();
-          return startLoginFlow(settings, newAppId);
+          return startLoginFlow(settings);
         }
 
         // 1. abandon the settings.stateHandle given session.stateHandle is still valid
@@ -62,7 +62,7 @@ export async function startLoginFlow(settings, appId) {
         // 1. remove session.stateHandle
         sessionStorageHelper.removeStateHandle();
         // 2. start the login again in order to introspect on settings.stateHandle
-        return startLoginFlow(settings, appId);
+        return startLoginFlow(settings);
       });
   }
 

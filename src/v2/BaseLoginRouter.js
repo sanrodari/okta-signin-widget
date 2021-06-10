@@ -104,8 +104,15 @@ export default Router.extend({
     //    -> introspect using options.stateHandle
     if (lastResponse) {
       const stateHandle = idxResponse?.context?.stateHandle;
+      const newAppId = idxResponse?.context?.app?.value?.id;
+      const oldAppId = sessionStorageHelper.getAppId();
+
+      if (oldAppId && (oldAppId !== newAppId)) {
+        sessionStorageHelper.removeStateHandle();
+      }
+
       // store stateHandle per app context
-      sessionStorageHelper.setStateHandle(stateHandle, this.appState.getAppId());
+      sessionStorageHelper.setStateHandle(stateHandle, newAppId);
     }
 
     // transform response
@@ -201,7 +208,7 @@ export default Router.extend({
     // and remove it from `settings` afterwards as IDX response always has
     // state token (which will be set into AppState)
     if (this.settings.get('oieEnabled')) {
-      return startLoginFlow(this.settings, this.appState.getAppId())
+      return startLoginFlow(this.settings)
         .then(idxResp => {
           this.settings.unset('stateToken');
           this.settings.unset('proxyIdxResponse');
