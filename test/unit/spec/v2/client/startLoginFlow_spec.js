@@ -26,7 +26,16 @@ describe('v2/client/startLoginFlow', () => {
     jest.spyOn(mocked.interact, 'interact')
       .mockResolvedValue('fake interact response');
     jest.spyOn(mocked.introspect, 'introspect')
-      .mockResolvedValueOnce('first introspect response');
+      .mockResolvedValueOnce({
+        value: 'first introspect response',
+        context: {
+          app: {
+            value: {
+              id: '123'
+            }
+          }
+        }
+      });
 
     testContext.settings = new Settings({
       baseUrl: 'localhost:1234',
@@ -82,7 +91,7 @@ describe('v2/client/startLoginFlow', () => {
 
   it('shall introspect on "settings.stateToken"', async () => {
     const result = await startLoginFlow(testContext.settings);
-    expect(result).toEqual('first introspect response');
+    expect(result.value).toEqual('first introspect response');
 
     expect(mocked.interact.interact).not.toHaveBeenCalled();
     expect(mocked.introspect.introspect).toHaveBeenCalledTimes(1);
@@ -94,10 +103,10 @@ describe('v2/client/startLoginFlow', () => {
   });
 
   it('shall introspect on "settings.stateToken" when overrideExistingStateToken is true', async () => {
-    sessionStorageHelper.setStateHandle('fake state handle from session storage');
+    sessionStorageHelper.setStateHandle('fake state handle from session storage', '123');
     testContext.settings.set('overrideExistingStateToken', 'true');
     const result = await startLoginFlow(testContext.settings);
-    expect(result).toEqual('first introspect response');
+    expect(result.value).toEqual('first introspect response');
 
     expect(mocked.interact.interact).not.toHaveBeenCalled();
     expect(mocked.introspect.introspect).toHaveBeenCalledTimes(1);
@@ -109,9 +118,10 @@ describe('v2/client/startLoginFlow', () => {
   });
 
   it('shall introspect on "sessionStorage.stateToken"', async () => {
-    sessionStorageHelper.setStateHandle('fake state handle from session storage');
+    sessionStorageHelper.setStateHandle('fake state handle from session storage', '123');
+
     const result = await startLoginFlow(testContext.settings);
-    expect(result).toEqual('first introspect response');
+    expect(result.value).toEqual('first introspect response');
 
     expect(mocked.interact.interact).not.toHaveBeenCalled();
     expect(mocked.introspect.introspect).toHaveBeenCalledTimes(1);
@@ -129,7 +139,7 @@ describe('v2/client/startLoginFlow', () => {
       .mockRejectedValueOnce('ERROR - introspect response')
       .mockResolvedValueOnce('another introspect response');
 
-    sessionStorageHelper.setStateHandle('fake state handle from session storage');
+    sessionStorageHelper.setStateHandle('fake state handle from session storage', '123');
     const result = await startLoginFlow(testContext.settings);
     expect(result).toEqual('another introspect response');
 

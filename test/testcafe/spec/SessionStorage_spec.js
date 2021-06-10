@@ -9,8 +9,8 @@ import IdentityPageObject from '../framework/page-objects/IdentityPageObject';
 import SuccessPageObject from '../framework/page-objects/SuccessPageObject';
 import TerminalPageObject from '../framework/page-objects/TerminalPageObject';
 
-export const getStateHandleFromSessionStorage = ClientFunction(() => {
-  return window.sessionStorage.getItem('osw-oie-state-handle-0oa1bowRUq4I8pIfd0g4');
+const getStateHandleFromSessionStorage = ClientFunction((appId = '0oa1bowRUq4I8pIfd0g4') => {
+  return window.sessionStorage.getItem(`osw-oie-state-handle-${appId}`);
 });
 
 const identifyChallengeMock = RequestMock()
@@ -36,7 +36,7 @@ fixture('Session Storage - manage state in client side')
     ClientFunction(() => { window.sessionStorage.clear(); });
   });
 
-test.requestHooks(identifyChallengeMock)('shall save state handle during authenticator and clear after success', async t => {
+test.requestHooks(identifyChallengeMock)('shall save state handle during verification and clear after success', async t => {
   const challengeSuccessMock = RequestMock()
     .onRequestTo('http://localhost:3000/idp/idx/introspect')
     .respond(xhrEmailVerification)
@@ -83,7 +83,7 @@ test.requestHooks(identifyChallengeMock)('shall save state handle during authent
   await t.expect(getStateHandleFromSessionStorage()).eql(null);
 });
 
-test.requestHooks(identifyChallengeMock)('shall save state handle during authenticator and do not clear at terminal', async t => {
+test.requestHooks(identifyChallengeMock)('shall save state handle during verification and not clear at terminal', async t => {
   const challengeTerminalMock = RequestMock()
     .onRequestTo('http://localhost:3000/idp/idx/introspect')
     .respond(xhrEmailVerification)
@@ -129,7 +129,7 @@ test.requestHooks(identifyChallengeMock)('shall save state handle during authent
   await t.expect(getStateHandleFromSessionStorage()).eql(null);
 });
 
-test.requestHooks(identifyChallengeMock)('shall clear session.stateHandle when click sign-out', async t => {
+test.requestHooks(identifyChallengeMock)('shall clear session.stateHandle when you click "Back to sign in"', async t => {
   const identityPage = new IdentityPageObject(t);
   const challengeEmailPageObject = new ChallengeEmailPageObject(t);
 
@@ -163,6 +163,79 @@ test.requestHooks(identifyChallengeMock)('shall clear when session.stateHandle i
         // mimic invalid token response
         res.statusCode = '401';
         res.setBody(xhrSessionExpried);
+        useNewTokenResponse = true;
+      }
+    });
+  const identityPage = new IdentityPageObject(t);
+  const challengeEmailPageObject = new ChallengeEmailPageObject(t);
+
+  // Identify page
+  await identityPage.navigateToPage();
+  await t.expect(getStateHandleFromSessionStorage()).eql(null);
+  await identityPage.fillIdentifierField('foo@test.com');
+  await identityPage.clickNextButton();
+
+  // Email challenge page
+  const pageTitle = challengeEmailPageObject.form.getTitle();
+  await t.expect(pageTitle).eql('Verify with your email');
+  await t.expect(getStateHandleFromSessionStorage()).eql(xhrEmailVerification.stateHandle);
+
+  // Reset mocks
+  await t.removeRequestHooks(identifyChallengeMock);
+  await t.addRequestHooks(multipleIntrospectMock);
+  await t.addRequestHooks(introspectRequestLogger);
+
+  // Refresh
+  await challengeEmailPageObject.refresh();
+
+  // Verify introspect requests
+  // introspect with session.stateHandle
+  // introspect with setting.stateHandle (from .widgetrc)
+  await t.expect(introspectRequestLogger.count(() => true)).eql(2);
+
+  const req1 = introspectRequestLogger.requests[0].request;
+  const reqBody1 = JSON.parse(req1.body);
+  await t.expect(reqBody1).eql({
+    stateToken: '02WTSGqlHUPjoYvorz8T48txBIPe3VUisrQOY4g5N8',
+  });
+  await t.expect(req1.url).eql('http://localhost:3000/idp/idx/introspect');
+
+  const req2 = introspectRequestLogger.requests[1].request;
+  const reqBody2 = JSON.parse(req2.body);
+  await t.expect(reqBody2).eql({
+    stateToken: 'dummy-state-token-wrc',
+  });
+  await t.expect(req2.url).eql('http://localhost:3000/idp/idx/introspect');
+
+  // Go back to Identify page as saved state handle becomes invalid
+  // and new state handle responds identify
+  await t.expect(identityPage.form.getTitle()).eql('Sign In');
+  await t.expect(getStateHandleFromSessionStorage()).eql(null);
+});
+
+
+test.requestHooks(identifyChallengeMock)('will clear when session.stateHandle has different app context', async t => {
+  let useNewTokenResponse = false;
+  const multipleIntrospectMock = RequestMock()
+    .onRequestTo('http://localhost:3000/idp/idx/introspect')
+    .respond((req, res) => {
+      if (useNewTokenResponse) {
+        // mimic response for new token
+        res.statusCode = '200';
+        res.setBody(xhrIdentify);
+      } else {
+        // return a different app context
+        res.statusCode = '200';
+        const xhrIdentifyWithDifferentApp =  {
+          ...xhrIdentify,
+          app: {
+            value: {
+              id: '123',
+            }
+          },
+          stateHandle: 'stateHandleForAppId123',
+        };
+        res.setBody(xhrIdentifyWithDifferentApp);
         useNewTokenResponse = true;
       }
     });
