@@ -337,6 +337,11 @@ describe('v2/ion/responseTransformer', function() {
     MockUtil.mockIntrospect(done, XHRIdentify, idxResp => {
       const result = transformResponse(testContext.settings, idxResp);
       expect(result).toEqual({
+        app: {
+          name: 'okta_enduser',
+          label: 'Okta Dashboard',
+          id: '0oa1bowRUq4I8pIfd0g4'
+        },
         remediations: [
           Object.assign({ action: expect.any(Function) }, XHRIdentify.remediation.value[0]),
           Object.assign({ action: expect.any(Function) }, XHRIdentify.remediation.value[1]),
@@ -351,6 +356,11 @@ describe('v2/ion/responseTransformer', function() {
     MockUtil.mockIntrospect(done, XHRIdentify, idxResp => {
       const result = transformResponse(testContext.settings, idxResp);
       expect(result).toEqual({
+        app: {
+          name: 'okta_enduser',
+          label: 'Okta Dashboard',
+          id: '0oa1bowRUq4I8pIfd0g4'
+        },
         remediations: [
           {
             rel: ['create-form'],
